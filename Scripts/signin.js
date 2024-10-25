@@ -95,7 +95,11 @@
                 };
                 var BindIDPEvent = function () {
                     $("#NovartisExchange").click(function (event) {
-                        window.location.href = "https://ciamtest01.b2clogin.com/ciamtest01.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SANDOZ_IDP_LOGIN&client_id=29e8b168-9946-4c79-89d3-215c9f55cff7&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login";
+                        
+                        var queryparams=new URLSearchParams(window.location.search);
+                        queryparams.set("p","B2C_1A_SANDOZ_IDP_LOGIN");
+                        window.location.search=queryparams.toString();
+                        // window.location.href = "https://ciamtest01.b2clogin.com/ciamtest01.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SANDOZ_IDP_LOGIN&client_id=29e8b168-9946-4c79-89d3-215c9f55cff7&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login";
                     });
                 };
                 var continuteButton = document.getElementById('continue');
