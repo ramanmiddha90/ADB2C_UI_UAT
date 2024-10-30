@@ -145,6 +145,8 @@
                     SetInvitationElements();
                     BindIDPEvent();
                     clearInterval(intervalHandle);
+
+                    
                 }
             }
         }, 50);
