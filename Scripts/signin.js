@@ -1,4 +1,4 @@
-
+//signin.html;
 (function onPageReady() {
     var intervalHandle = setInterval(
         function () {
