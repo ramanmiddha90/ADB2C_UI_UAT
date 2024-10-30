@@ -102,6 +102,13 @@
                         // window.location.href = "https://ciamtest01.b2clogin.com/ciamtest01.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SANDOZ_IDP_LOGIN&client_id=29e8b168-9946-4c79-89d3-215c9f55cff7&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login";
                     });
                 };
+                var setCustomLabels=function(){
+                    var forgortPassMesage = GetTextBasedOnCode('lbl_ForgotPassword', "Forgot your password?")
+                    var ssoIntroText=GetTextBasedOnCode('lbl_SSOIntro', "Sign in with your social account?")
+                    $("#resetPassword").text(forgortPassMesage);
+                    $("#ssointro").text(ssoIntroText);
+                    $("#customCancel").text($("#cancel").text())
+                };
                 var continuteButton = document.getElementById('continue');
                 if (continuteButton && $("#continue").is(':visible')) {
 
@@ -116,10 +123,7 @@
                     $("#continue").after("<button id='customCancel'>Cancel</button>");
                     $(".password_li").filter(":last").append("<div class='forgot-password center-height'><a id='resetPassword' href='javascript:undefined'>Forgot your password?</a></div>");
 
-                    var forgortPassMesage = GetTextBasedOnCode('lbl_ForgotPassword', "Forgot your password?")
-                    console.log(forgortPassMesage);
-                    $("#resetPassword").text(forgortPassMesage);
-                    $("#customCancel").text($("#cancel").text())
+                    setCustomLabels();
                     $("#resetPassword").click(function (event) {
                         window.location.href = "https://ciamtest01.b2clogin.com/ciamtest01.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_PWRESET&client_id=29e8b168-9946-4c79-89d3-215c9f55cff7&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login";
                     });
