@@ -1,1 +1,1 @@
-
+(function onPageReady() {});
