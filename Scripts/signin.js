@@ -99,7 +99,12 @@
                         var queryparams=new URLSearchParams(window.location.search);
                         queryparams.set("p","B2C_1A_SANDOZ_IDP_LOGIN");
                         window.location.search=queryparams.toString();
-                        // window.location.href = "https://ciamtest01.b2clogin.com/ciamtest01.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SANDOZ_IDP_LOGIN&client_id=29e8b168-9946-4c79-89d3-215c9f55cff7&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login";
+                    });
+                    $("#resetPassword").click(function (event) {
+
+                        var queryparams=new URLSearchParams(window.location.search);
+                        queryparams.set("p","B2C_1A_PWRESET");
+                        window.location.search=queryparams.toString();
                     });
                 };
                 var setCustomLabels=function(){
@@ -124,9 +129,7 @@
                     $(".password_li").filter(":last").append("<div class='forgot-password center-height'><a id='resetPassword' href='javascript:undefined'>Forgot your password?</a></div>");
 
                     setCustomLabels();
-                    $("#resetPassword").click(function (event) {
-                        window.location.href = "https://ciamtest01.b2clogin.com/ciamtest01.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_PWRESET&client_id=29e8b168-9946-4c79-89d3-215c9f55cff7&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login";
-                    });
+                  
                     $("#customCancel").click(function () {
                         //debugger;
                         var errorCode = GetCancelCodeBasedOnMessage();
