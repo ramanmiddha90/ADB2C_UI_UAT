@@ -1,6 +1,7 @@
 (function onPageReady() {
     var SIGN_IN_POLICY = "B2C_1A_SOLAR_LOGIN";
     var SIGN_UP_POLICY = "B2C_1A_SOLAR_SIGNUP";
+    var ServerURL="https://auf-solar-dev-westeurope-01.azurewebsites.net/api/solar"
     var intervalHandle = setInterval(
         function () {
             if (window.pageReady) {

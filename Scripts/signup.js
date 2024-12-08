@@ -34,40 +34,53 @@
                     var fieldInfo = $.parseJSON($("#FieldInfo").val());
                     fieldInfo.Fields_Info.forEach(function (UXField) {
                         var fieldAttr = "." + UXField.Id + "_li";
-                        var requiredFieldAttr = "." + UXField.Id + "_required_li";
-                        var requiredFieldId = "#" + UXField.Id + "_required";
-                        console.log(requiredFieldAttr);
+                        // var requiredFieldAttr = "." + UXField.Id + "_required_li";
+                        // var requiredFieldId = "#" + UXField.Id + "_required";
+                        // console.log(requiredFieldAttr);
                         if (UXField.Is_Visible) {
-                            if (UXField.Is_Req && $(requiredFieldAttr) != null && $(requiredFieldAttr) != undefined && $(requiredFieldAttr).length > 0) {
-                                $(fieldAttr).hide();
-                                $(requiredFieldAttr).show();
+                            if (UXField.Is_Req) {
+                                let objIndex = SA_FIELDS.AttributeFields.findIndex(
+                                    (obj) => obj.ID == UXField.Id
+                                );
+                                //Update object's name property.
+                                SA_FIELDS.AttributeFields[objIndex].IS_REQ = true;
                             }
+                            
                             else {
                                 $(fieldAttr).show();
-                                if ($(requiredFieldAttr).length > 0) {
-                                    $(requiredFieldAttr).hide();
-                                    if (UXField.InputType == "Dropdown") {
-                                        //if dropdwon set default index 1
-                                        $(requiredFieldId).get(0).selectedIndex = 1;
-                                    }
-                                    else {
-                                        $(requiredFieldId).val("na");
-                                    }
-                                }
+                               
                             }
+                            // if (UXField.Is_Req && $(requiredFieldAttr) != null && $(requiredFieldAttr) != undefined && $(requiredFieldAttr).length > 0) {
+                            //     $(fieldAttr).hide();
+                            //     $(requiredFieldAttr).show();
+                            // }
+                            
+                            // else {
+                            //     $(fieldAttr).show();
+                            //     if ($(requiredFieldAttr).length > 0) {
+                            //         $(requiredFieldAttr).hide();
+                            //         if (UXField.InputType == "Dropdown") {
+                            //             //if dropdwon set default index 1
+                            //             $(requiredFieldId).get(0).selectedIndex = 1;
+                            //         }
+                            //         else {
+                            //             $(requiredFieldId).val("na");
+                            //         }
+                            //     }
+                            // }
                         }
                         else {
                             $(fieldAttr).hide();
-                            if ($(requiredFieldAttr).length > 0) {
-                                $(requiredFieldAttr).hide();
-                                if (UXField.InputType == "Dropdown") {
-                                    //if dropdwon set default index 1
-                                    $(requiredFieldId).get(0).selectedIndex = 1;
-                                }
-                                else {
-                                    $(requiredFieldId).val("na");
-                                }
-                            }
+                            // if ($(requiredFieldAttr).length > 0) {
+                            //     $(requiredFieldAttr).hide();
+                            //     if (UXField.InputType == "Dropdown") {
+                            //         //if dropdwon set default index 1
+                            //         $(requiredFieldId).get(0).selectedIndex = 1;
+                            //     }
+                            //     else {
+                            //         $(requiredFieldId).val("na");
+                            //     }
+                            // }
                         }
                     });
                 }
@@ -153,7 +166,7 @@
                     AttachCancelEvent();
 
                     $("#customContinue").click(function (e) {
-                        setFieldValues();
+                        // setFieldValues();
                         $("#continue").click();
                     });
                     clearInterval(intervalHandle);
