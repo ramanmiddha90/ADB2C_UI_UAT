@@ -42,19 +42,20 @@
                                 let objIndex = SA_FIELDS.AttributeFields.findIndex(
                                     (obj) => obj.ID == UXField.Id
                                 );
-                                //Update object's name property.
-                                SA_FIELDS.AttributeFields[objIndex].IS_REQ = true;
+                                if (objIndex >= 0) {
+                                    //Update object's name property.
+                                    SA_FIELDS.AttributeFields[objIndex].IS_REQ = true;
+                                }
                             }
-                            
                             else {
                                 $(fieldAttr).show();
-                               
+
                             }
                             // if (UXField.Is_Req && $(requiredFieldAttr) != null && $(requiredFieldAttr) != undefined && $(requiredFieldAttr).length > 0) {
                             //     $(fieldAttr).hide();
                             //     $(requiredFieldAttr).show();
                             // }
-                            
+
                             // else {
                             //     $(fieldAttr).show();
                             //     if ($(requiredFieldAttr).length > 0) {
@@ -150,8 +151,8 @@
                             redirectURI = GetRedirectURLFromReferrer('redirect_uri');
                         }
                         else {
-                             redirectURI = GetParameterValues('redirect_uri');
-                         
+                            redirectURI = GetParameterValues('redirect_uri');
+
                         }
                         var url = decodeURIComponent(redirectURI) + "#error=access_denied&error_description=AAD_Custom_466:" + returnUrl;
                         window.location.replace(url);
