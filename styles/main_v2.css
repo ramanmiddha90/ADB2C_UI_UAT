@@ -315,9 +315,7 @@ fieldset {
 }
 
     fieldset legend {
-        color: #001c4a;
-        font-size: 18px;
-      /*  font-weight: 500;*/
+   
         margin: 0 0 8px 0;
     }
 /*
@@ -534,7 +532,7 @@ label {
     display: none
 }
 
-p {
+p, legend {
     box-sizing: border-box;
     color: rgb(0, 28, 74);
     display: block;
@@ -554,11 +552,13 @@ p {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/* Custom class Sep 16, 2024 */
+    legend{
 
-.email input {
-    margin: 0;
-}
+    }
+    /* Custom class Sep 16, 2024 */
+    .email input {
+        margin: 0;
+    }
 
 .verificationControlContent .buttons {
     margin-bottom: 24px;
