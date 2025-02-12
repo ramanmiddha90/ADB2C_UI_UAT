@@ -64,10 +64,10 @@ fieldset label {
         margin-bottom: 48px;
     }
 
-    .intro label {
-        text-align: left;
-        margin-bottom: 32px;
-    }
+.customLabelIntro {
+    text-align: left;
+    margin-bottom: 32px;
+}
 /*new class created */
 input::placeholder {
     font-size: 16px;
