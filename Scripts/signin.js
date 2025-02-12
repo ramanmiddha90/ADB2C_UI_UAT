@@ -109,7 +109,7 @@
                 };
                 var setCustomLabels = function () {
                     var forgortPassMesage = GetTextBasedOnCode('lbl_ForgotPassword', "Forgot your password?")
-                    var ssoIntroText = GetTextBasedOnCode('lbl_SSOIntro', "Sign in with your social account?")
+                    var ssoIntroText = GetTextBasedOnCode('lbl_SSOIntro', "Are you a sandoz associate?")
                     $("#resetPassword").text(forgortPassMesage);
                     $("#ssointro").text(ssoIntroText);
                     $("#customCancel").text($("#cancel").text())
