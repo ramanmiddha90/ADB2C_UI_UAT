@@ -348,6 +348,9 @@ div.buttons {
     float: left;
 }
 
+#customCancel, #cancel{
+    float:left !important;
+}
 div#api > div.buttons:first-child {
     display: none;
 }
