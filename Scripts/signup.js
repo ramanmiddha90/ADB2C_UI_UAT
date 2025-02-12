@@ -71,7 +71,7 @@
                     }
 
                     $("#continue").after("<button id='customCancel'>Cancel</button>");
-                    $(".FieldInfo_li").after("<li class='TextBox scoutUserFirstName_li'><div class='attrEntry'><label id='personalInfo_lbl'>Personal Information</label></div></li>");
+                    $(".FieldInfo_li").after("<li class='TextBox scoutUserFirstName_li'><div class='intro'><label id='personalInfo_lbl'>Personal Information</label></div></li>");
                     $("#continue").after("<button id='customContinue'>Continue</button>");
                     $("#continue").hide();
                     $("#customCancel").text($("#cancel").text())

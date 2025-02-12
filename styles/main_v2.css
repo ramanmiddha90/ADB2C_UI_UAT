@@ -63,6 +63,11 @@ fieldset label {
         text-align: left;
         margin-bottom: 48px;
     }
+
+    .intro label {
+        text-align: left;
+        margin-bottom: 32px;
+    }
 /*new class created */
 input::placeholder {
     font-size: 16px;
