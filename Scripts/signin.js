@@ -95,21 +95,21 @@
                 };
                 var BindIDPEvent = function () {
                     $("#NovartisExchange").click(function (event) {
-                        
-                        var queryparams=new URLSearchParams(window.location.search);
-                        queryparams.set("p","B2C_1A_SANDOZ_IDP_LOGIN");
-                        window.location.search=queryparams.toString();
+
+                        var queryparams = new URLSearchParams(window.location.search);
+                        queryparams.set("p", "B2C_1A_SANDOZ_IDP_LOGIN");
+                        window.location.search = queryparams.toString();
                     });
                     $("#resetPassword").click(function (event) {
 
-                        var queryparams=new URLSearchParams(window.location.search);
-                        queryparams.set("p","B2C_1A_PWRESET");
-                        window.location.search=queryparams.toString();
+                        var queryparams = new URLSearchParams(window.location.search);
+                        queryparams.set("p", "B2C_1A_PWRESET");
+                        window.location.search = queryparams.toString();
                     });
                 };
-                var setCustomLabels=function(){
+                var setCustomLabels = function () {
                     var forgortPassMesage = GetTextBasedOnCode('lbl_ForgotPassword', "Forgot your password?")
-                    var ssoIntroText=GetTextBasedOnCode('lbl_SSOIntro', "Sign in with your social account?")
+                    var ssoIntroText = GetTextBasedOnCode('lbl_SSOIntro', "Sign in with your social account?")
                     $("#resetPassword").text(forgortPassMesage);
                     $("#ssointro").text(ssoIntroText);
                     $("#customCancel").text($("#cancel").text())
@@ -129,7 +129,7 @@
                     $(".password_li").filter(":last").append("<div class='forgot-password center-height'><a id='resetPassword' href='javascript:undefined'>Forgot your password?</a></div>");
 
                     setCustomLabels();
-                  
+
                     $("#customCancel").click(function () {
                         //debugger;
                         var errorCode = GetCancelCodeBasedOnMessage();
@@ -149,7 +149,7 @@
                     BindIDPEvent();
                     clearInterval(intervalHandle);
 
-                    
+
                 }
             }
         }, 50);
