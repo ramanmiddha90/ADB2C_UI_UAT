@@ -71,7 +71,7 @@ fieldset label {
     
 }
 /*new class created */
-input::placeholder {
+input::placeholder, select::placeholder {
     font-size: 16px;
 }
 #logo {
