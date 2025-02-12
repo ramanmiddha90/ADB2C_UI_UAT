@@ -61,12 +61,13 @@ fieldset label {
 
     .intro p {
         text-align: left;
-        margin-bottom: 48px;
+       /* margin-bottom: 48px;*/
     }
 
 .customLabelIntro {
     text-align: left;
-    margin-bottom: 16px !important;
+    /*margin-bottom: 16px !important;*/
+    margin-top:48px !important
     
 }
 /*new class created */
@@ -282,7 +283,7 @@ button:hover {
     background-color: #a8d5ff;
 }
 
-    #cancel, #customCancel, .sendNewCode:hover {
+    #cancel:hover, #customCancel:hover, .sendNewCode:hover {
         background-color: #1c59b5;
         color: white;
     }
@@ -560,7 +561,7 @@ p {
 }
 
 .verificationControlContent .buttons {
-    margin-bottom: 48px;
+    margin-bottom: 24px;
 }
 
 button {
