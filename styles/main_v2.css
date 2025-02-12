@@ -66,7 +66,7 @@ fieldset label {
 
 .customLabelIntro {
     text-align: left;
-    /*margin-bottom: 16px !important;*/
+    margin-bottom: 16px !important;
     margin-top:48px !important
     
 }
@@ -317,7 +317,7 @@ fieldset {
     fieldset legend {
         color: #001c4a;
         font-size: 18px;
-        font-weight: 500;
+      /*  font-weight: 500;*/
         margin: 0 0 8px 0;
     }
 /*
