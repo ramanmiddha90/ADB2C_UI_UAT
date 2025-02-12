@@ -28,15 +28,12 @@
                     return null;
                 }
 
-
                 function loadFields() {
 
                     var fieldInfo = $.parseJSON($("#FieldInfo").val());
                     fieldInfo.Fields_Info.forEach(function (UXField) {
                         var fieldAttr = "." + UXField.Id + "_li";
-                        // var requiredFieldAttr = "." + UXField.Id + "_required_li";
-                        // var requiredFieldId = "#" + UXField.Id + "_required";
-                        // console.log(requiredFieldAttr);
+                       
                         if (UXField.Is_Visible) {
                             if (UXField.Is_Req) {
                                 let objIndex = SA_FIELDS.AttributeFields.findIndex(
@@ -51,69 +48,9 @@
                                 $(fieldAttr).show();
 
                             }
-                            // if (UXField.Is_Req && $(requiredFieldAttr) != null && $(requiredFieldAttr) != undefined && $(requiredFieldAttr).length > 0) {
-                            //     $(fieldAttr).hide();
-                            //     $(requiredFieldAttr).show();
-                            // }
-
-                            // else {
-                            //     $(fieldAttr).show();
-                            //     if ($(requiredFieldAttr).length > 0) {
-                            //         $(requiredFieldAttr).hide();
-                            //         if (UXField.InputType == "Dropdown") {
-                            //             //if dropdwon set default index 1
-                            //             $(requiredFieldId).get(0).selectedIndex = 1;
-                            //         }
-                            //         else {
-                            //             $(requiredFieldId).val("na");
-                            //         }
-                            //     }
-                            // }
                         }
                         else {
                             $(fieldAttr).hide();
-                            // if ($(requiredFieldAttr).length > 0) {
-                            //     $(requiredFieldAttr).hide();
-                            //     if (UXField.InputType == "Dropdown") {
-                            //         //if dropdwon set default index 1
-                            //         $(requiredFieldId).get(0).selectedIndex = 1;
-                            //     }
-                            //     else {
-                            //         $(requiredFieldId).val("na");
-                            //     }
-                            // }
-                        }
-                    });
-                }
-                function setFieldValues() {
-                    var fieldInfo = $.parseJSON($("#FieldInfo").val());
-                    fieldInfo.Fields_Info.forEach(function (UXField) {
-                        if (UXField.Is_Visible) {
-                            var fieldAttr = "#" + UXField.Id;
-                            var requiredFieldAttr = "#" + UXField.Id + "_required";
-
-                            if (UXField.Is_Req && $(requiredFieldAttr).is(':visible')) {
-                                if (UXField.InputType == "Dropdown") {
-                                    $(fieldAttr).val($(requiredFieldAttr).val());
-                                    //if dropdwon set default index 1
-                                    $(fieldAttr).get(0).selectedIndex = $(requiredFieldAttr).get(0).selectedIndex;
-                                }
-                                else {
-                                    $(fieldAttr).val($(requiredFieldAttr).val());
-                                }
-
-                            }
-                            else {
-                                if ($(requiredFieldAttr).length > 0) {
-                                    if (UXField.InputType == "Dropdown") {
-                                        //if dropdwon set default index 1
-                                        $(requiredFieldAttr).get(0).selectedIndex = 1;
-                                    }
-                                    else {
-                                        $(requiredFieldAttr).val("na");
-                                    }
-                                }
-                            }
                         }
                     });
                 }
@@ -134,8 +71,7 @@
                     }
 
                     $("#continue").after("<button id='customCancel'>Cancel</button>");
-
-
+                    $(".FieldInfo_li").after(<li class='TextBox scoutUserFirstName_li'><div class='attrEntry'><label id='personalInfo_lbl'>Personal Information</label></div></li>)
                     $("#continue").after("<button id='customContinue'>Continue</button>");
                     $("#continue").hide();
                     $("#customCancel").text($("#cancel").text())
