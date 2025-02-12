@@ -280,7 +280,7 @@ fieldset{
 /*legend{
     display:none;   
 }*/
-#signInName_label, #password_label, #email_label, #newPassword_label, #reenterPassword_label, .heading, #ErrorMappings_label, #ErrorMappings, #CurrentSignInStatus,
+ .heading, #ErrorMappings_label, #ErrorMappings, #CurrentSignInStatus,
 #CurrentSignInStatus_label, #invitationCode, #invitationCode_label, #passwordResetPortalUserURl_label, .FieldInfo_li,
 #passwordResetPortalUserURl, #IDPName_label, #IDPName {
     display: none;
