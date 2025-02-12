@@ -78,7 +78,7 @@
                         $(".verificationInfoText").before("<li class='TextBox'><div class='intro'><p id='introaccountheader_lbl' class='customLabelIntro'>Account Details</p></div></li>");
 
                     if ($("#api"))
-                        $("#api > .intro:eq(0) ").before("<div class='pageheader intropageheader intro'><p id='intropageheader_lbl' class=''>Register to Customer Connect</p></div>");
+                        $("#api > .intro:eq(0) ").before("<div class='pageheader intropageheader intro'><p id='intropageheader_lbl'>Register to Customer Connect</p></div>");
 
                     $("#continue").after("<button id='customContinue'>Continue</button>");
                     $("#continue").hide();
