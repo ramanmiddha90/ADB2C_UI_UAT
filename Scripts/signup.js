@@ -74,8 +74,8 @@
 
                     if ($(".FieldInfo_li"))
                         $(".FieldInfo_li").after("<li class='TextBox scoutUserFirstName_li'><div class='intro'><p id='personalInfo_lbl' class='customLabelIntro'>Personal Information</p></div></li>");
-                    if ($(".email_li"))
-                        $(".email_li").before("<li class='TextBox'><div class='intro'><p id='introaccountheader_lbl' class='customLabelIntro'>Account Details</p></div></li>");
+                    if ($(".verificationInfoText"))
+                        $(".verificationInfoText").before("<li class='TextBox'><div class='intro'><p id='introaccountheader_lbl' class='customLabelIntro'>Account Details</p></div></li>");
 
                     if ($("#api"))
                         $("#api > .intro:eq(0) ").before("<div class='pageheader intropageheader intro'><p id='intropageheader_lbl' class=''>Register to Customer Connect</p></div>");
