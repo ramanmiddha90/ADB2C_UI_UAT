@@ -113,6 +113,10 @@
                     $("#resetPassword").text(forgortPassMesage);
                     $("#ssointro").text(ssoIntroText);
                     $("#customCancel").text($("#cancel").text())
+
+                    if ($("#api"))
+                        $("#api > .intro:eq(0) ").before("<div class='pageheader intropageheader intro'><p id='intropageheader_lbl'>Login</p></div>");
+
                 };
                 var continuteButton = document.getElementById('continue');
                 if (continuteButton && $("#continue").is(':visible')) {
