@@ -77,8 +77,8 @@
                     if ($(".email_li"))
                         $(".email_li").before("<li class='TextBox'><div class='intro'><p id='introaccountheader_lbl' class='customLabelIntro'>Account Details</p></div></li>");
 
-                    if ($(".intro"))
-                        $(".intro").before("<div class='pageheader intro'><p id='intropageheader_lbl' class=''>Register to Customer Connect</p></div>");
+                    if ($("#api"))
+                        $("#api > .intro:eq(0) ").before("<div class='pageheader intro'><p id='intropageheader_lbl' class=''>Register to Customer Connect</p></div>");
 
                     $("#continue").after("<button id='customContinue'>Continue</button>");
                     $("#continue").hide();
