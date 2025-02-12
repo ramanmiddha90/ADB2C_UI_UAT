@@ -75,7 +75,11 @@
                     if ($(".FieldInfo_li"))
                         $(".FieldInfo_li").after("<li class='TextBox scoutUserFirstName_li'><div class='intro'><p id='personalInfo_lbl' class='customLabelIntro'>Personal Information</p></div></li>");
                     if ($(".email_li"))
-                        $(".email_li").before("<li class='TextBox'><div class='intro'><p id='introheader_lbl' class='customLabelIntro'>Account Details</p></div></li>");
+                        $(".email_li").before("<li class='TextBox'><div class='intro'><p id='introaccountheader_lbl' class='customLabelIntro'>Account Details</p></div></li>");
+
+                    if ($(".intro"))
+                        $(".intro").before("<div class='pageheader intro'><p id='intropageheader_lbl' class=''>Register to Customer Connect</p></div>");
+
                     $("#continue").after("<button id='customContinue'>Continue</button>");
                     $("#continue").hide();
                     $("#customCancel").text($("#cancel").text())

@@ -70,6 +70,11 @@ fieldset label {
     margin-top:48px !important
     
 }
+#intropageheader_lbl {
+    text-align: left;
+    margin-bottom: 16px !important;
+    font-size:24px;
+}
 /*new class created */
 input::placeholder, select::placeholder {
     font-size: 16px;
