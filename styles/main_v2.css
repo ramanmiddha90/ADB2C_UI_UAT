@@ -629,5 +629,5 @@ html {
     border-radius: 4px 4px 0px 0px;
 }
 #emailVerificationControl_but_change_claims{
-    display:none;
+    display:none !important;
 }
