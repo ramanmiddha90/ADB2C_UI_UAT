@@ -579,5 +579,15 @@ button {
 /* Feb 12, 2025 */
 
 html {
-    font-size: inherit;
+    font-size: inherit !important;
+}
+
+.snd-navContainer {
+    width: 1136px;
+    border-bottom: 1px solid #9898a2;
+}
+
+.snd-navContainer .nav-tabs {
+    width: fit-content;
+    margin: 0 auto;
 }
