@@ -575,3 +575,6 @@ p, legend {
 button {
     margin: 0 16px 0 0 !important;
 }
+#emailVerificationControl_but_change_claims{
+    display:none;
+}
