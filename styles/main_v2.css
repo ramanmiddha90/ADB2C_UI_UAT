@@ -575,6 +575,59 @@ p, legend {
 button {
     margin: 0 16px 0 0 !important;
 }
+
+/* Feb 12, 2025 */
+
+html {
+    font-size: inherit !important;
+}
+
+.snd-navContainer {
+    width: 1136px;
+    border-bottom: 1px solid #9898a2;
+    margin-bottom: 48px;
+}
+
+.snd-navContainer .nav-tabs {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.snd-navContainer .nav-tabs>li>a {
+    padding: 16px 24px;
+    font-size: 20px;
+    color: #001c4a;
+    margin: 0;
+    letter-spacing: -0.2px;
+    line-height: 120%;
+    border: none;
+}
+
+.snd-navContainer .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    padding: 16px 24px;
+    color: #ffffff;
+    font-size: 20px;
+    background: #001c4a;
+    border: none;
+    line-height: 120%;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+    height: auto;
+    border-radius: 4px 4px 0px 0px;
+}
+
+.snd-navContainer .nav-tabs>li>a:hover {
+    padding: 16px 24px;
+    color: #ffffff;
+    font-size: 20px;
+    background: #1c59b5;
+    border: none;
+    line-height: 120%;
+    font-weight: normal;
+    letter-spacing: -0.2px;
+    height: auto;
+    border-radius: 4px 4px 0px 0px;
+}
 #emailVerificationControl_but_change_claims{
     display:none;
 }
