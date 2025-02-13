@@ -598,6 +598,7 @@ html {
     font-size: 20px;
     color: #001c4a;
     margin: 0;
+    letter-spacing: -0.2px;
     line-height: 120%;
     border: none;
 }
