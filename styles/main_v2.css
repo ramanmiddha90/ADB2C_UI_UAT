@@ -631,3 +631,6 @@ html {
 #emailVerificationControl_but_change_claims{
     display:none !important;
 }
+#lblSignup{
+    margin-top:16px;
+}
