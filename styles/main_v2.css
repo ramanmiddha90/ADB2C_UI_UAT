@@ -591,3 +591,16 @@ html {
     width: fit-content;
     margin: 0 auto;
 }
+
+.snd-navContainer .nav-tabs>li>a {
+    padding: 16px 24px;
+    font-size: 20px;
+    color: #001c4a;
+}
+
+.snd-navContainer .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    padding: 16px 24px;
+    color: #ffffff;
+    font-size: 20px;
+    background: #001c4a;
+}
