@@ -585,6 +585,7 @@ html {
 .snd-navContainer {
     width: 1136px;
     border-bottom: 1px solid #9898a2;
+    margin-bottom: 48px;
 }
 
 .snd-navContainer .nav-tabs {
@@ -596,6 +597,9 @@ html {
     padding: 16px 24px;
     font-size: 20px;
     color: #001c4a;
+    margin: 0;
+    line-height: 120%;
+    border: none;
 }
 
 .snd-navContainer .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
@@ -615,7 +619,7 @@ html {
     padding: 16px 24px;
     color: #ffffff;
     font-size: 20px;
-    background: #1C5985;
+    background: #1c59b5;
     border: none;
     line-height: 120%;
     font-weight: normal;
