@@ -4,6 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://ramanmiddha90.github.io/ADB2C_UI_UAT/styles/global.css" data-preload="true">
     <link rel="stylesheet" href="https://ramanmiddha90.github.io/ADB2C_UI_UAT/styles/main_v2.css" data-preload="true">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <style type="text/css">
@@ -39,7 +40,11 @@
 
         </div>
     </div>
+    <script>
+        $('body').prepend('<div class="backdrop"></div>');
+        $('form').prepend('<div id="custom_loader_container" class="verifying-modal"><div id="custom_text">Please wait while it loads</div></div>');
 
+    </script>
 </body>
 
 </html>
