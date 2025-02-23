@@ -114,6 +114,8 @@
                         // setFieldValues();
                         $("#continue").click();
                     });
+                    $(".backdrop").remove();
+                    $("#custom_loader_container").remove();
                     clearInterval(intervalHandle);
                 }
             }
