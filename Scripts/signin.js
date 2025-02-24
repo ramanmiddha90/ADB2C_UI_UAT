@@ -46,7 +46,7 @@
                                 if (UIElementConfig.Type && UIElementConfig.Type == "label")
                                 {
                                     //code is id
-                                    var currentElement = $(UIElementConfig.Code);
+                                    var currentElement = $("#"+UIElementConfig.Code);
                                     if (currentElement) {
                                         currentElement.text(UIElementConfig.Text);
                                     }
