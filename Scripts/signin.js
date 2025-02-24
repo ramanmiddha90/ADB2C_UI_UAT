@@ -43,11 +43,11 @@
 
                             var UI_Locales = $.parseJSON($("#ErrorMappings").val());
                             UI_Locales.StatusMapping.forEach(function (UIElementConfig) {
-                                if (UIElementConfig.Type != undefined && UIElementConfig.Type == "label")
+                                if (UIElementConfig.Type && UIElementConfig.Type == "label")
                                 {
                                     //code is id
                                     var currentElement = $(UIElementConfig.Code);
-                                    if (currentElement != undefined) {
+                                    if (currentElement) {
                                         currentElement.text(UIElementConfig.Text);
                                     }
 
