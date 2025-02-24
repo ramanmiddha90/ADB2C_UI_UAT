@@ -121,20 +121,20 @@
                         }
                     }, 5);
                     //Modal drop down and error message
-                    $('#claimVerificationServerError').bind('DOMSubtreeModified', function () {
-                        $('.modal-backdrop').remove();
-                        $('#verifying_blurb').empty();
-                        $('#requestchange').show();
-                        $('.show-process').css({ 'display': 'none' });
+                    //$('#claimVerificationServerError').bind('DOMSubtreeModified', function () {
+                    //    $('.modal-backdrop').remove();
+                    //    $('#verifying_blurb').empty();
+                    //    $('#requestchange').show();
+                    //    $('.show-process').css({ 'display': 'none' });
 
-                    });
-                    $('#verifying_blurb').bind('DOMSubtreeModified', function () {
-                        if (!($("#verifying_blurb").is(':empty'))) {
-                            if ($('body').hasClass('modal-open')) {
-                                $('<div class="modal-backdrop in"></div>').appendTo('body');
-                            }
-                        }
-                    });
+                    //});
+                    //$('#verifying_blurb').bind('DOMSubtreeModified', function () {
+                    //    if (!($("#verifying_blurb").is(':empty'))) {
+                    //        if ($('body').hasClass('modal-open')) {
+                    //            $('<div class="modal-backdrop in"></div>').appendTo('body');
+                    //        }
+                    //    }
+                    //});
                     $("#customContinue").click(function (e) {
                         // setFieldValues();
                         $('body').prepend('<div class="backdrop"></div>');
@@ -142,7 +142,9 @@
                         $("#continue").click();
                     });
                     $(".backdrop").remove();
-                    $("#custom_loader_container").remove();
+                    /* $("#custom_loader_container").remove();*/
+                    //$(".show-process").css({ 'display': 'none' });
+                    $("#verifying_blurb").removeClass('show-process');
                     clearInterval(intervalHandle);
                 }
             }

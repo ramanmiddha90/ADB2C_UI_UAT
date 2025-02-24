@@ -37,26 +37,27 @@
                     observer.observe(targetNode, { attributes: true, childList: true });
                 };
 
-                function GetTextBasedOnCode(code, defaultValue) {
-                    var message = defaultValue;
+                function SetUILabels() {
                     try {
                         if ($("#ErrorMappings") != null) {
 
                             var UI_Locales = $.parseJSON($("#ErrorMappings").val());
+                            UI_Locales.StatusMapping.forEach(function (UIElementConfig) {
+                                if (UIElementConfig.Type != undefined && UIElementConfig.Type == "label")
+                                {
+                                    //code is id
+                                    var currentElement = $(UIElementConfig.Code);
+                                    if (currentElement != undefined) {
+                                        currentElement.text(UIElementConfig.Text);
+                                    }
 
-                            UI_Locales.StatusMapping.forEach(function (error) {
-
-                                if (error.Code == code) {
-                                    message = error.Message;
-                                    return false;
                                 }
                             });
                         }
                     }
                     catch {
-                        return message;
+                        
                     }
-                    return message;
                 }
                 function GetCancelCodeBasedOnMessage() {
                     var errorCode = 999;
@@ -68,7 +69,7 @@
 
                             UI_Locales.StatusMapping.forEach(function (error) {
 
-                                if (error.Message == currentErrorMessage) {
+                                if (error.Message!=undefined && error.Message == currentErrorMessage) {
                                     errorCode = error.Code;
                                     return false;
                                 }
@@ -108,10 +109,7 @@
                     });
                 };
                 var setCustomLabels = function () {
-                    var forgortPassMesage = GetTextBasedOnCode('lbl_ForgotPassword', "Forgot your password?")
-                    var ssoIntroText = GetTextBasedOnCode('lbl_SSOIntro', "Are you a Sandoz associate?")
-                    $("#resetPassword").text(forgortPassMesage);
-                    $("#ssointro").text(ssoIntroText);
+                    SetUILabels();
                     $("#customCancel").text($("#cancel").text())
 
                     if ($("#api"))
