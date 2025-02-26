@@ -48,7 +48,7 @@
                                     //code is id
                                     var currentElement = $("#"+UIElementConfig.Code);
                                     if (currentElement) {
-                                        currentElement.text(UIElementConfig.Text);
+                                        currentElement.html(UIElementConfig.Text);
                                     }
 
                                 }
