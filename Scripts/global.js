@@ -7,7 +7,7 @@ function LoadSpinner() {
 function LoadComapnies() {
 	var getcomppanytask = {
 		url:
-			'https://auf-solar-dev-westeurope-01.azurewebsites.net/api/solar/webforms/scout/dcr/getWholeSellers?countryCode=CA',
+			'https://auf-solar-dev-westeurope-01.azurewebsites.net/api/solar/config/getCompanyInfo?countryCode=CA',
 		method: 'GET',
 		timeout: 0
 	};
