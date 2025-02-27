@@ -42,8 +42,10 @@ function LoadComapnies() {
 			console.log(e);
 		}
 	}
-	$(".backdrop").remove();
-	$("#verifying_blurb").removeClass('show-process');
+	else {
+		$(".backdrop").remove();
+		$("#verifying_blurb").removeClass('show-process');
+	}
 }
 
 LoadSpinner();
