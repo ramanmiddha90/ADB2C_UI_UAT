@@ -141,10 +141,8 @@
                         $('#verifying_blurb').addClass('show-process');
                         $("#continue").click();
                     });
-                    $(".backdrop").remove();
-                    /* $("#custom_loader_container").remove();*/
-                    //$(".show-process").css({ 'display': 'none' });
-                    $("#verifying_blurb").removeClass('show-process');
+                  
+                  
                     clearInterval(intervalHandle);
                 }
             }

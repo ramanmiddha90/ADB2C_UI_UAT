@@ -38,8 +38,12 @@ function LoadComapnies() {
 					scoutSapSoldToID.append($(companyOption));
 				});
 			})
+			$(".backdrop").remove();
+			$("#verifying_blurb").removeClass('show-process');
 		} catch (e) {
 			console.log(e);
+			$(".backdrop").remove();
+			$("#verifying_blurb").removeClass('show-process');
 		}
 	}
 }
