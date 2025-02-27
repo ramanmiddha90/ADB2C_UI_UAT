@@ -3,7 +3,17 @@ function LoadSpinner() {
     $('form').prepend('<div id="custom_loader_container" class="verifying-modal"><div id="custom_text">Please wait while it loads</div></div>');
     console.log($("#continue").is(':visible'));
 }
+function GetParameterValues(param) {
+	var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+	for (var i = 0; i < url.length; i++) {
+		var urlparam = url[i].split('=');
+		if (urlparam[0].toUpperCase() == param.toUpperCase()) {
+			return urlparam[1];
+		}
 
+	}
+	return null;
+};
 function LoadComapnies() {
 	var scoutSapSoldToID = $("#scoutSapSoldToID");
 	var countryCode = GetParameterValues("countryCode");
