@@ -37,9 +37,13 @@ function LoadComapnies() {
 					var companyOption = new Option(companyInfo.Name, companyInfo.SCT_SAP_ID__c);
 					scoutSapSoldToID.append($(companyOption));
 				});
+				$(".backdrop").remove();
+				$("#verifying_blurb").removeClass('show-process');
 			})
 		} catch (e) {
 			console.log(e);
+			$(".backdrop").remove();
+			$("#verifying_blurb").removeClass('show-process');
 		}
 	}
 	else {
