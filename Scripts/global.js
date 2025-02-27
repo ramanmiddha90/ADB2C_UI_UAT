@@ -35,7 +35,7 @@ function SetSpinnerObserver() {
 }
 function LoadInternalConfig() {
 	LoadComapnies();
-	SetSpinnerObserver();
+	//SetSpinnerObserver();
 }
 function LoadComapnies() {
 	var scoutSapSoldToID = $("#scoutSapSoldToID");

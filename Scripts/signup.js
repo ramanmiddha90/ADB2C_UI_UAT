@@ -137,8 +137,8 @@
                     //});
                     $("#customContinue").click(function (e) {
                         // setFieldValues();
-                        $('body').prepend('<div class="backdrop"></div>');
-                        $('#verifying_blurb').addClass('show-process');
+                        //$('body').prepend('<div class="backdrop"></div>');
+                        //$('#verifying_blurb').addClass('show-process');
                         $("#continue").click();
                     });
                   
