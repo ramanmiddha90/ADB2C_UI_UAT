@@ -4,4 +4,21 @@ function LoadSpinner() {
     console.log($("#continue").is(':visible'));
 }
 
+function LoadComapnies() {
+	var getcomppanytask = {
+		url:
+			'https://auf-solar-dev-westeurope-01.azurewebsites.net/api/solar/webforms/scout/dcr/getWholeSellers?countryCode=CA',
+		method: 'GET',
+		timeout: 0
+	};
+	try {
+		$.ajax(getcomppanytask).done(function (response) {
+			console.log(response);
+		})
+	} catch (e) {
+		console.log(e);
+	}
+}
+
 LoadSpinner();
+LoadComapnies();
