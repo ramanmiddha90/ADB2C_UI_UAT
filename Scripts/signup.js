@@ -110,16 +110,16 @@
                     setUIElements();
                     AttachCancelEvent();
 
-                    var intervalClose = setInterval(() => {
-                        if (!($("#verifying_blurb").is(':empty'))) {
-                            $(".show-process").css({ 'display': 'block' });
-                            //console.log('element "modal-backdrop" added');
-                        } else {
-                            $(".show-process").css({ 'display': 'none' });
-                            $(".backdrop").remove();
-                            $("#custom_loader_container").remove();
-                        }
-                    }, 5);
+                    //var intervalClose = setInterval(() => {
+                    //    if (!($("#verifying_blurb").is(':empty'))) {
+                    //        $(".show-process").css({ 'display': 'block' });
+                    //        //console.log('element "modal-backdrop" added');
+                    //    } else {
+                    //        $(".show-process").css({ 'display': 'none' });
+                    //        $(".backdrop").remove();
+                    //        $("#custom_loader_container").remove();
+                    //    }
+                    //}, 5);
                     //Modal drop down and error message
                     //$('#claimVerificationServerError').bind('DOMSubtreeModified', function () {
                     //    $('.modal-backdrop').remove();
