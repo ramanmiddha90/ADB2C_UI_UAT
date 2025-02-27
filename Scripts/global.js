@@ -14,24 +14,35 @@ function GetParameterValues(param) {
 	}
 	return null;
 };
+
+function LoadInternalConfig() {
+	LoadComapnies();
+}
 function LoadComapnies() {
 	var scoutSapSoldToID = $("#scoutSapSoldToID");
 	var countryCode = GetParameterValues("countryCode");
-	var getcomppanytask = {
-		url:
-			'https://auf-solar-dev-westeurope-01.azurewebsites.net/api/solar/config/getCompanyInfo?countryCode=' + countryCode,
-		method: 'GET',
-		timeout: 0
-	};
-	try {
-		$.ajax(getcomppanytask).done(function (response) {
-			var companies = result = typeof response === "string" ? JSON.parse(response) : response;
-			console.log(companies);
-		})
-	} catch (e) {
-		console.log(e);
+	if (scoutSapSoldToID) {
+		var getcomppanytask = {
+			url:
+				'https://auf-solar-dev-westeurope-01.azurewebsites.net/api/solar/config/getCompanyInfo?countryCode=' + countryCode,
+			method: 'GET',
+			timeout: 0
+		};
+		try {
+			$.ajax(getcomppanytask).done(function (response) {
+				var companies = result = typeof response === "string" ? JSON.parse(response) : response;
+				console.log(companies);
+				scoutSapSoldToID.find("option:gt(0)").remove();
+				companies.forEach(function (companyInfo) {
+					var companyOption = new Option(companyInfo.Name, companyInfo.SCT_SAP_ID__c);
+					scoutSapSoldToID.append($(companyOption));
+				});
+			})
+		} catch (e) {
+			console.log(e);
+		}
 	}
 }
 
 LoadSpinner();
-LoadComapnies();
+LoadInternalConfig();
