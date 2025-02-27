@@ -15,8 +15,27 @@ function GetParameterValues(param) {
 	return null;
 };
 
+function SetSpinner(showSpinner) {
+	if (showSpinner == true) {
+
+	}
+	else {
+		$(".backdrop").remove();
+		$("#verifying_blurb").removeClass('show-process');
+	}
+}
+function SetSpinnerObserver() {
+	var targetNode = document.getElementById('claimVerificationServerError');
+	var observer = new MutationObserver(function () {
+		if (targetNode.style.display != 'none') {
+			SetSpinner(false);
+		}
+	});
+	observer.observe(targetNode, { attributes: true, childList: true });
+}
 function LoadInternalConfig() {
 	LoadComapnies();
+	SetSpinnerObserver();
 }
 function LoadComapnies() {
 	var scoutSapSoldToID = $("#scoutSapSoldToID");
