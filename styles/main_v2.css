@@ -632,5 +632,5 @@ html {
     display:none !important;
 }
 #lblSignup, #ssointro, #NovartisExchange {
-    margin-top: 16px !important;
+   float:left;
 }
