@@ -540,7 +540,7 @@ label {
     display: none
 }
 
-p, legend {
+p, legend, span {
     box-sizing: border-box;
     color: rgb(0, 28, 74);
     display: block;
