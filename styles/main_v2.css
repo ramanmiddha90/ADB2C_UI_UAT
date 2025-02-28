@@ -634,3 +634,6 @@ html {
  /*#NovartisExchange {
    float:left;
 }*/
+#lblSignup{
+    display:inline;
+}
