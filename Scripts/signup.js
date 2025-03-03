@@ -33,6 +33,7 @@
                     var fieldInfo = $.parseJSON($("#FieldInfo").val());
                     fieldInfo.Fields_Info.forEach(function (UXField) {
                         var fieldAttr = "." + UXField.Id + "_li";
+                        var fieldAttrLabelId = "#" + UXField.Id + "_lable";
                        
                         if (UXField.Is_Visible) {
                             if (UXField.Is_Req) {
@@ -42,6 +43,7 @@
                                 if (objIndex >= 0) {
                                     //Update object's name property.
                                     SA_FIELDS.AttributeFields[objIndex].IS_REQ = true;
+                                    $(fieldAttrLabelId).text($(fieldAttrLabelId).text() + "*");
                                 }
                             }
                             else {
