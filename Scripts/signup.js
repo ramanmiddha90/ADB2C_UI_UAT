@@ -77,7 +77,7 @@
                     }
 
                     $("#continue").after("<button id='customCancel'>Cancel</button>");
-
+                    SetPolicyTC();
                     if ($(".FieldInfo_li"))
                         $(".FieldInfo_li").after("<li class='TextBox scoutUserFirstName_li'><div class='intro'><p id='personalInfo_lbl' class='customLabelIntro'>Personal Information</p></div></li>");
                     if ($("#requiredFieldMissing"))
