@@ -33,7 +33,7 @@
                     var fieldInfo = $.parseJSON($("#FieldInfo").val());
                     fieldInfo.Fields_Info.forEach(function (UXField) {
                         var fieldAttr = "." + UXField.Id + "_li";
-                        var fieldAttrLabelId = "#" + UXField.Id + "_lable";
+                        var fieldAttrLabelId = "#" + UXField.Id + "_label";
                        
                         if (UXField.Is_Visible) {
                             if (UXField.Is_Req) {
