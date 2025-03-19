@@ -640,3 +640,53 @@ html {
 .pepageheader{
 
 }
+.footer {
+    background-color: #001c4a;
+    color: #fff;
+}
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.footer-first {
+    float: left;
+    text-align: left;
+}
+.richtext p:last-child {
+    margin-bottom: 0;
+  
+}
+
+.footer-first > p {
+    margin-bottom: 0;
+    color: #fff;
+}
+.footer-bottom .anchor {
+    margin-right: 1.25rem;
+    text-align: left;
+}
+
+.anchor.no-underline {
+    border: 0;
+}
+
+.footer-bottom .anchor {
+    font-style: normal;
+}
+.anchor.footer-text {
+    font-size: calc(var(--footer-text-size-lg) / 16* 1rem);
+    font-weight: var(--footer-text-weight-400);
+    line-height: calc(var(--footer-text-line-height-lg) / 100);
+}
+.footer-middle {
+    display: flex;
+    flex-wrap: wrap;
+}
+.footer a {
+    display: block;
+    color: var(--brand-secondary-color-one);
+    text-decoration:none;
+}
