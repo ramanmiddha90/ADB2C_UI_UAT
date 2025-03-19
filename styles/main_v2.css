@@ -660,13 +660,18 @@ html {
   
 }
 
-.footer-first > p {
+.footer > p {
+    margin-bottom: 0;
+    color: #fff;
+}
+.footer > span {
     margin-bottom: 0;
     color: #fff;
 }
 .footer-bottom .anchor {
     margin-right: 1.25rem;
     text-align: left;
+    color: #fff;
 }
 
 .anchor.no-underline {
