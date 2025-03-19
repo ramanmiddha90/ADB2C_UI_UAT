@@ -660,9 +660,18 @@ html {
   
 }
 
-.footer p {
+.footer p, span {
     margin-bottom: 0;
     color: #fff;
+    display: block;
+    font-family: "Futura Now Text";
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.2px;
+    line-height: 21.6px;
+    text-align: start;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .footer span {
     margin-bottom: 0;
