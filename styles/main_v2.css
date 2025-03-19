@@ -660,11 +660,11 @@ html {
   
 }
 
-.footer > p {
+.footer p {
     margin-bottom: 0;
     color: #fff;
 }
-.footer > span {
+.footer span {
     margin-bottom: 0;
     color: #fff;
 }
