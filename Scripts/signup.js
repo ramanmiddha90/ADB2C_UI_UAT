@@ -85,7 +85,7 @@
                         $("#requiredFieldMissing").before("<div class='intro'><p id='introaccountheader_lbl' class='customLabelIntro'>Account Details</p></div>");
 
                     if ($("#api"))
-                        $("#api > .intro:eq(0) ").before("<div class='pageheader intropageheader intro'><p id='intropageheader_lbl'>Register to Customer Connect</p></div>");
+                        $("#api > .intro:eq(0) ").before("<div class='pageheader intropageheader intro'><p id='intropageheader_lbl'>Register</p></div>");
 
                     $("#continue").after("<button id='customContinue'>Continue</button>");
                     $("#continue").hide();
