@@ -1,32 +1,5 @@
 /*  HCP global css    */
 
-/* @font-face {
-  font-family: VoltaModernDisplay-75;
-  src: local(VoltaModernDisplay-75Bold),
-    url(../../Fonts/VoltaModern/VoltaModernDisplay-75Bold.otf) format("opentype");
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-}
-
- @font-face {
-  font-family: VoltaModernDisplay-55Roman;
-  src: local(VoltaModernDisplay-55Roman),
-    url(../../Fonts/VoltaModern/VoltaModernDisplay-55Roman.otf) format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-}
-
-@font-face {
-  font-family: VoltaModernDisplay-65;
-  src: local(VoltaModernDisplay-65Medium),
-    url(../../Fonts/VoltaModern/VoltaModernDisplay-65Medium.otf) format("opentype");
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-} */
-
 @font-face {
     font-family: VoltaModernDisplay-75;
     src: local(VoltaModernDisplay-75Bold), url("../../Fonts/VoltaModern/VoltaModernDisplay-75Bold.otf") format("opentype");
