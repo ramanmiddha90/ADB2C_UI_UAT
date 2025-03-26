@@ -720,4 +720,5 @@ html {
 .pwdwrapper, .consentwrapper {
     width: 250px;
     margin: 20px auto;
+    min-height:30dvh;
 }
