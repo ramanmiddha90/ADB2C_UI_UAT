@@ -717,3 +717,7 @@ html {
     color: var(--brand-secondary-color-one);
     text-decoration:none;
 }
+.pwdwrapper, .consentwrapper {
+    width: 250px;
+    margin: 20px auto;
+}
