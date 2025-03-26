@@ -40,7 +40,8 @@ function LoadInternalConfig() {
 function LoadComapnies() {
 	var scoutSapSoldToID = $("#scoutSapSoldToID");
 	var countryCode = GetParameterValues("countryCode");
-	if (scoutSapSoldToID && scoutSapSoldToID.length > 0 && scoutSapSoldToID.is(':visible')) {
+	//&& scoutSapSoldToID.is(':visible')
+	if (scoutSapSoldToID && scoutSapSoldToID.length > 0 ) {
 		var getcomppanytask = {
 			url:
 				'https://auf-solar-dev-westeurope-01.azurewebsites.net/api/solar/config/getCompanyInfo?countryCode=' + countryCode,
