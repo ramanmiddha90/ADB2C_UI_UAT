@@ -113,6 +113,12 @@
                     }
 
                     $("#continue").after("<button id='customCancel'>Cancel</button>");
+                    $("#btnReset").click(function (event) {
+
+                        var queryparams = new URLSearchParams(window.location.search);
+                        queryparams.set("p", "B2C_1A_PWRESET");
+                        window.location.search = queryparams.toString();
+                    });
                     $("#btnConsent").click(function () {
 
                         var portalURL = $("#passwordResetPortalUserURl").val();
