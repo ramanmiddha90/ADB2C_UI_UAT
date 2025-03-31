@@ -343,6 +343,8 @@ fieldset {
 
 #lbl_pitcherURLError {
     color: red;
+    width: 500px;
+    margin: 20px auto;
 }
 
 .verifying-modal {
