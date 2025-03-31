@@ -118,7 +118,7 @@
                         var queryparams = new URLSearchParams(window.location.search);
                         if (queryparams.has("redirect_uri")) {
                             queryparams.set("p", "B2C_1A_PWRESET");
-                            window.location.search = queryparams.toString();
+                            window.location.replace(window.location.origin + window.location.pathname+"?" + queryparams.toString())
                         }
                         else {
                             var redirect_uri = GetParameterValues("redirect_uri");
