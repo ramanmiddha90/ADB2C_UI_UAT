@@ -125,7 +125,7 @@
                             var client_id = GetParameterValues("client_id");
                             var return_url = GetParameterValues("return_url");
                             var originURL = document.domain;
-                            var tenantName = originURl.remove(".b2clogin.com") +".onmicrosoft.com";
+                            var tenantName = originURL.remove(".b2clogin.com") +".onmicrosoft.com";
                             var passwordURL = "https://" + originURL + "/" + tenantName + "/oauth2/v2.0/authorize?p=B2C_1A_pwreset&client_id=" + client_id + "&nonce=defaultNonce&redirect_uri=" + redirect_uri + "&scope=openid&response_type=id_token&UI_Locales=en&return_url=" + return_url;
                             window.location.replace(passwordURL);
                         }
