@@ -53,6 +53,12 @@ function LoadComapnies() {
 				var companies = result = typeof response === "string" ? JSON.parse(response) : response;
 				console.log(companies);
 				scoutSapSoldToID.find("option:gt(0)").remove();
+
+				companies = companies.sort((a, b) => {
+					if (a.Name < b.Name) {
+						return -1;
+					}
+				});
 				companies.forEach(function (companyInfo) {
 					var companyOption = new Option(companyInfo.Name, companyInfo.SCT_SAP_ID__c);
 					scoutSapSoldToID.append($(companyOption));
