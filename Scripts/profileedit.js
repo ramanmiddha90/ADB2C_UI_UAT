@@ -132,12 +132,16 @@
                        
                         //window.location.replace("https://ciamtest01.b2clogin.com/ciamtest01.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_pwreset&client_id=29e8b168-9946-4c79-89d3-215c9f55cff7&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&countryCode=US&UI_Locales=en&return_url=aHR0cHM6Ly91YXQuc29sYXIubXktc2FuZG96LmNvbS8=&Version=2");
                     });
-                    $("#btnConsent").click(function () {
-
+                    $("#btnConsent").click(function (e) {
+                        $("#lbl_pitcherURLError").hide();
                         var portalURL = $("#passwordResetPortalUserURl").val();
 
                         if (portalURL != null && portalURL != undefined)
                             window.location.replace(portalURL);
+                        else {
+                            $("#lbl_pitcherURLError").show();
+                            e.preventDefault();
+                        }
                     });
 
                     $("#continue").after("<button id='customContinue'>Continue</button>");

@@ -61,7 +61,7 @@ fieldset label {
 
     .intro p {
         text-align: left;
-       /* margin-bottom: 48px;*/
+        /* margin-bottom: 48px;*/
     }
 
 .customLabelIntro {
@@ -70,9 +70,11 @@ fieldset label {
     margin-top: 48px !important;
     color: #4d4d57;
 }
+
 #intropageheader_lbl {
     font-size: 24px;
 }
+
 .intropageheader {
     margin-bottom: 24px !important;
     text-align: left;
@@ -82,6 +84,7 @@ fieldset label {
 input::placeholder, select::placeholder {
     font-size: 16px;
 }
+
 #logo {
     width: 70%;
     /* margin: 0px auto; */
@@ -323,7 +326,6 @@ fieldset {
 }
 
     fieldset legend {
-   
         margin: 0 0 8px 0;
     }
 /*
@@ -333,10 +335,14 @@ fieldset {
 /*legend{
     display:none;   
 }*/
- .heading, #ErrorMappings_label, #ErrorMappings, #CurrentSignInStatus,
+.heading, #ErrorMappings_label, #ErrorMappings, #CurrentSignInStatus,
 #CurrentSignInStatus_label, #invitationCode, #invitationCode_label, #passwordResetPortalUserURl_label, .FieldInfo_li,
-#passwordResetPortalUserURl, #IDPName_label, #IDPName {
+#passwordResetPortalUserURl, #IDPName_label, #IDPName, #lbl_pitcherURLError {
     display: none;
+}
+
+#lbl_pitcherURLError {
+    color: red;
 }
 
 .verifying-modal {
@@ -363,9 +369,10 @@ div.buttons {
     float: left;
 }
 
-#customCancel, #cancel{
-    float:left !important;
+#customCancel, #cancel {
+    float: left !important;
 }
+
 div#api > div.buttons:first-child {
     display: none;
 }
@@ -560,13 +567,12 @@ p, legend, span {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-    legend{
-
-    }
-    /* Custom class Sep 16, 2024 */
-    .email input {
-        margin: 0;
-    }
+legend {
+}
+/* Custom class Sep 16, 2024 */
+.email input {
+    margin: 0;
+}
 
 .verificationControlContent .buttons {
     margin-bottom: 24px;
@@ -588,64 +594,67 @@ html {
     margin-bottom: 48px;
 }
 
-.snd-navContainer .nav-tabs {
-    width: fit-content;
-    margin: 0 auto;
-}
+    .snd-navContainer .nav-tabs {
+        width: fit-content;
+        margin: 0 auto;
+    }
 
-.snd-navContainer .nav-tabs>li>a {
-    padding: 16px 24px;
-    font-size: 20px;
-    color: #001c4a;
-    margin: 0;
-    letter-spacing: -0.2px;
-    line-height: 120%;
-    border: none;
-}
+        .snd-navContainer .nav-tabs > li > a {
+            padding: 16px 24px;
+            font-size: 20px;
+            color: #001c4a;
+            margin: 0;
+            letter-spacing: -0.2px;
+            line-height: 120%;
+            border: none;
+        }
 
-.snd-navContainer .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-    padding: 16px 24px;
-    color: #ffffff;
-    font-size: 20px;
-    background: #001c4a;
-    border: none;
-    line-height: 120%;
-    font-weight: 500;
-    letter-spacing: -0.5px;
-    height: auto;
-    border-radius: 4px 4px 0px 0px;
-}
+        .snd-navContainer .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+            padding: 16px 24px;
+            color: #ffffff;
+            font-size: 20px;
+            background: #001c4a;
+            border: none;
+            line-height: 120%;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            height: auto;
+            border-radius: 4px 4px 0px 0px;
+        }
 
-.snd-navContainer .nav-tabs>li>a:hover {
-    padding: 16px 24px;
-    color: #ffffff;
-    font-size: 20px;
-    background: #1c59b5;
-    border: none;
-    line-height: 120%;
-    font-weight: normal;
-    letter-spacing: -0.2px;
-    height: auto;
-    border-radius: 4px 4px 0px 0px;
+        .snd-navContainer .nav-tabs > li > a:hover {
+            padding: 16px 24px;
+            color: #ffffff;
+            font-size: 20px;
+            background: #1c59b5;
+            border: none;
+            line-height: 120%;
+            font-weight: normal;
+            letter-spacing: -0.2px;
+            height: auto;
+            border-radius: 4px 4px 0px 0px;
+        }
+
+#emailVerificationControl_but_change_claims {
+    display: none !important;
 }
-#emailVerificationControl_but_change_claims{
-    display:none !important;
-}
- /*#NovartisExchange {
+/*#NovartisExchange {
    float:left;
 }*/
-#lblSignup{
-    display:inline;
+#lblSignup {
+    display: inline;
 }
-.pepageheader{
 
+.pepageheader {
 }
+
 .footer {
     background-color: #001c4a;
     color: #fff;
-    padding:16px 0px;
-    margin-top:48px;
+    padding: 16px 0px;
+    margin-top: 48px;
 }
+
 .footer-bottom {
     display: flex;
     align-items: center;
@@ -653,13 +662,14 @@ html {
     flex-wrap: nowrap;
     justify-content: space-between;
 }
+
 .footer-first {
     float: left;
     text-align: left;
 }
+
 .richtext p:last-child {
     margin-bottom: 0;
-  
 }
 
 .footer p {
@@ -675,6 +685,7 @@ html {
     text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
 .footer span {
     margin-bottom: 0;
     color: #fff;
@@ -690,6 +701,7 @@ html {
     text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
 .footer-bottom .anchor {
     margin-right: 1.25rem;
     text-align: left;
@@ -703,22 +715,26 @@ html {
 .footer-bottom .anchor {
     font-style: normal;
 }
+
 .anchor.footer-text {
     font-size: calc(var(--footer-text-size-lg) / 16* 1rem);
     font-weight: var(--footer-text-weight-400);
     line-height: calc(var(--footer-text-line-height-lg) / 100);
 }
+
 .footer-middle {
     display: flex;
     flex-wrap: wrap;
 }
+
 .footer a {
     display: block;
     color: var(--brand-secondary-color-one);
-    text-decoration:none;
+    text-decoration: none;
 }
+
 .pwdwrapper, .consentwrapper {
     width: 250px;
     margin: 20px auto;
-    min-height:30dvh;
+    min-height: 30dvh;
 }
