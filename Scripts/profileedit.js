@@ -115,10 +115,21 @@
                     $("#continue").after("<button id='customCancel'>Cancel</button>");
                     $("#btnReset").click(function (event) {
 
-                        //var queryparams = new URLSearchParams(window.location.search);
-                        //queryparams.set("p", "B2C_1A_PWRESET");
-                        //window.location.search = queryparams.toString();
-                        window.location.replace("https://ciamtest01.b2clogin.com/ciamtest01.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_pwreset&client_id=29e8b168-9946-4c79-89d3-215c9f55cff7&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&countryCode=US&UI_Locales=en&return_url=aHR0cHM6Ly91YXQuc29sYXIubXktc2FuZG96LmNvbS8=&Version=2");
+                        var queryparams = new URLSearchParams(window.location.search);
+                        if (queryparams.has("redirect_uri")) {
+                            queryparams.set("p", "B2C_1A_PWRESET");
+                            window.location.search = queryparams.toString();
+                        }
+                        else {
+                            var redirect_uri = GetParameterValues("redirect_uri");
+                            var client_id = GetParameterValues("client_id");
+                            var return_url = GetParameterValues("return_url");
+                            var originURL = document.domain;
+                            var passwordURL = "https://" + originURL + "/" + originURL + "/oauth2/v2.0/authorize?p=B2C_1A_pwreset&client_id=" + client_id + "&nonce=defaultNonce&redirect_uri=" + redirect_uri + "scope=openid&response_type=id_token&UI_Locales=en&return_url=" + return_url;
+                            window.location.replace(passwordURL);
+                        }
+                       
+                        //window.location.replace("https://ciamtest01.b2clogin.com/ciamtest01.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_pwreset&client_id=29e8b168-9946-4c79-89d3-215c9f55cff7&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&countryCode=US&UI_Locales=en&return_url=aHR0cHM6Ly91YXQuc29sYXIubXktc2FuZG96LmNvbS8=&Version=2");
                     });
                     $("#btnConsent").click(function () {
 
