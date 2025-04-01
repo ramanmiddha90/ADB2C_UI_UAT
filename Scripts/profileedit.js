@@ -136,7 +136,7 @@
                         $("#lbl_pitcherURLError").hide();
                         var portalURL = $("#passwordResetPortalUserURl").val();
 
-                        if (portalURL != null && portalURL != undefined)
+                        if (portalURL != null && portalURL != undefined && portalURL!="")
                             window.location.replace(portalURL);
                         else {
                             $("#lbl_pitcherURLError").show();
