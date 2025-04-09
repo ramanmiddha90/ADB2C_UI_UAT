@@ -155,7 +155,7 @@
                         if (returnUrl == null)
                             returnUrl = "";
                         var redirectURI = GetParameterValues('redirect_uri');
-                        var url = decodeURIComponent(redirectURI) + "#error=access_denied&error_description=AAD_Custom_466:" + returnUrl;
+                        var url = decodeURIComponent(redirectURI) + "#error=access_denied&error_description=AAD_Custom_476:" + returnUrl;
                         window.location.replace(url);
                         e.stopPropagation();
                     });
