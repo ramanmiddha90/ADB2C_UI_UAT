@@ -1,30 +1,33 @@
-﻿const observer = new MutationObserver((mutations, obs) => {
-    if (typeof selfAsserted !== 'undefined' && selfAsserted.submit) {
-        console.log("✅ B2C SelfAsserted object found");
+﻿const waitForSelfAsserted = setInterval(() => {
+    if (typeof selfAsserted !== 'undefined' && typeof selfAsserted.submit === 'function') {
+        clearInterval(waitForSelfAsserted);
+        console.log("✅ selfAsserted object detected");
 
-        obs.disconnect();
-
-        // Save original B2C submit handler
+        // Store original B2C submit method
         const originalSubmit = selfAsserted.submit;
 
-        // Override it
+        // Override submit to run validation before continuing
         selfAsserted.submit = function () {
-            console.log("🚫 Custom intercept before submission");
+            console.log("🛑 Intercepted B2C submission");
 
-            // Your custom validation logic
-            const pwdInput = document.querySelector('input[type="password"]');
-            const pwd = pwdInput?.value || '';
+            const pwd = document.querySelector('input[type="password"]')?.value || '';
+            const confirm = document.querySelector('input[id*="ConfirmPassword"]')?.value || '';
 
+            // Simple password validation
             if (!/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(pwd)) {
-                alert("❌ Password must have at least 8 characters, one uppercase, and one number.");
-                pwdInput?.focus();
-                return; // Stop submission
+                alert("❌ Password must have at least 8 characters, one uppercase letter, and one number.");
+                return;
             }
 
-            console.log("✅ Custom validation passed. Submitting via original B2C handler...");
-            originalSubmit(); // Proceed with normal B2C orchestration
+            // Confirm password match
+            if (confirm && pwd !== confirm) {
+                alert("❌ Passwords do not match.");
+                return;
+            }
+
+            // If all validation passes, submit using B2C’s logic
+            console.log("✅ All checks passed. Calling original submit.");
+            originalSubmit();
         };
     }
-});
-
-observer.observe(document.body, { childList: true, subtree: true });
+}, 200);
