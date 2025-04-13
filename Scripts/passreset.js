@@ -8,16 +8,16 @@
             continueBtn.onclick = function (e) {
                 e.preventDefault(); // Prevent default B2C submission
 
-                const passwordInput = document.querySelector('input[type="password"]');
-                const password = passwordInput ? passwordInput.value : '';
+                //const passwordInput = document.querySelector('input[type="password"]');
+                //const password = passwordInput ? passwordInput.value : '';
 
-                // Your custom password validation
-                const passwordIsValid = /^(?=.*[A-Z])(?=.*\d).{8,}$/.test(password);
+                //// Your custom password validation
+                //const passwordIsValid = /^(?=.*[A-Z])(?=.*\d).{8,}$/.test(password);
 
-                if (!passwordIsValid) {
-                    alert("Password must be at least 8 characters long and include one uppercase letter and one number.");
-                    return; // Don't submit
-                }
+                //if (!passwordIsValid) {
+                //    alert("Password must be at least 8 characters long and include one uppercase letter and one number.");
+                //    return; // Don't submit
+                //}
 
                 // Optionally, also trigger B2C's HTML5 validation
                 if (form.checkValidity()) {
