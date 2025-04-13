@@ -85,14 +85,12 @@ function LoadFields() {
 
 const observer = new MutationObserver(function (mutations, obs) {
     const form = document.querySelector('form');
-    const cancelBtn = document.querySelector('cancel');
+    const cancelBtn = document.querySelector('#cancel');
     const continueBtn = document.querySelector('#continue')
         || document.querySelector('button[type="submit"]');
 
     if (form && continueBtn) {
 
-        LoadFields();
-        SetUIElements();
       
         console.log("✅ Form and continue button found.");
         obs.disconnect();
