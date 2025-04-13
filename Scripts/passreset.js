@@ -28,7 +28,13 @@
             //}
 
             console.log("✅ Form is valid. Submitting manually.");
-            form.submit(); // Only submit when form is fully valid
+            if (typeof window['Login'] === 'function') {
+                window['Login']();
+            } else if (typeof window['__doPostBack'] === 'function') {
+                window['__doPostBack'](); // fallback
+            } else {
+                alert("❌ Could not find B2C submit handler.");
+            }
         }, true); // Use capture phase
     }
 });
