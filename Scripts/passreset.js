@@ -19,11 +19,11 @@
             }
 
             // ✅ Custom password rule
-            const password = document.querySelector('input[type="password"]')?.value || '';
-            if (!/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(password)) {
-                alert("Password must be at least 8 characters long, include an uppercase letter and a number.");
-                return;
-            }
+            //const password = document.querySelector('input[type="password"]')?.value || '';
+            //if (!/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(password)) {
+            //    alert("Password must be at least 8 characters long, include an uppercase letter and a number.");
+            //    return;
+            //}
 
             console.log("✅ All checks passed. Resuming B2C submission...");
 
