@@ -7,8 +7,8 @@
                 var continuteButton = document.getElementById('continue');
                 if (continuteButton && $("#continue").is(':visible')) {
 
-                    loadFields();
-                    setUIElements();
+                    LoadFields();
+                    SetUIElements();
                   
 
                     $("#customContinue").click(function (e) {
