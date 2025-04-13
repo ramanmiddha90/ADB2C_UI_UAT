@@ -1,34 +1,41 @@
 ﻿window.onload = function () {
-    // Wait until the form is rendered by B2C
-    setTimeout(function () {
-        const form = document.querySelector('form');
-        const continueBtn = document.querySelector('button[id^="continue"]');
+    document.addEventListener("DOMContentLoaded", function () {
+        const observer = new MutationObserver(function (mutations, obs) {
+            // Try to find the button by ID
+            const continueBtn = document.querySelector('#continue')
+                || document.querySelector('button[id^="continue"]')
+                || document.querySelector('button[type="submit"]'); // fallback
 
-        if (form && continueBtn) {
-            continueBtn.onclick = function (e) {
-                e.preventDefault(); // Prevent default B2C submission
+            debugger;
+            if (continueBtn) {
+                console.log("Continue button detected.");
 
-                //const passwordInput = document.querySelector('input[type="password"]');
-                //const password = passwordInput ? passwordInput.value : '';
+                // Stop observing once the button is found
+                obs.disconnect();
 
-                //// Your custom password validation
-                //const passwordIsValid = /^(?=.*[A-Z])(?=.*\d).{8,}$/.test(password);
+                // Override the click behavior
+                continueBtn.onclick = function (e) {
+                    e.preventDefault(); // ❌ Prevent default B2C submission
+                    console.log("B2C submission blocked.");
 
-                //if (!passwordIsValid) {
-                //    alert("Password must be at least 8 characters long and include one uppercase letter and one number.");
-                //    return; // Don't submit
-                //}
+                    // ✅ Custom logic here
+                    alert("Custom logic before form submission");
 
-                // Optionally, also trigger B2C's HTML5 validation
-                if (form.checkValidity()) {
-                    alert("invalidForm");
-                    return;
-                } else {
-                    alert("validform");
-                    form.reportValidity();
-                    return;
-                }
-            };
-        }
-    }, 500); // wait for B2C to inject the DOM
+                    //// ✅ Optional: Submit manually after checks
+                    //const form = document.querySelector('form');
+                    //if (form && form.checkValidity()) {
+                    //    form.submit();
+                    //} else {
+                    //    form?.reportValidity();
+                    //}
+                };
+            }
+        });
+
+        // Observe body changes — B2C injects the form and button dynamically
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    });
 };
