@@ -337,7 +337,7 @@ fieldset {
 }*/
 .heading, #ErrorMappings_label, #ErrorMappings, #CurrentSignInStatus,
 #CurrentSignInStatus_label, #invitationCode, #invitationCode_label, #passwordResetPortalUserURl_label, .FieldInfo_li,
-#passwordResetPortalUserURl, #IDPName_label, #IDPName, #lbl_pitcherURLError, #queryparams_label, queryparams {
+#passwordResetPortalUserURl, #IDPName_label, #IDPName, #lbl_pitcherURLError, #queryparams_label, #queryparams {
     display: none;
 }
 
