@@ -2,7 +2,7 @@
     // Wait until the form is rendered by B2C
     setTimeout(function () {
         const form = document.querySelector('form');
-        const continueBtn = document.querySelector('button[id^="next"]');
+        const continueBtn = document.querySelector('button[id^="continue"]');
 
         if (form && continueBtn) {
             continueBtn.onclick = function (e) {
