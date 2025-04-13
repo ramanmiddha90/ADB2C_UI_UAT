@@ -1,48 +1,30 @@
-﻿const observer = new MutationObserver(function (mutations, obs) {
-    const form = document.querySelector('form');
-    const continueBtn = document.querySelector('#continue')
-        || document.querySelector('button[type="submit"]');
+﻿const observer = new MutationObserver((mutations, obs) => {
+    if (typeof selfAsserted !== 'undefined' && selfAsserted.submit) {
+        console.log("✅ B2C SelfAsserted object found");
 
-    if (form && continueBtn) {
-        console.log("✅ Form and continue button found.");
         obs.disconnect();
 
-        // Override continue button click
-        continueBtn.addEventListener('click', function (e) {
-            console.log("🚫 Preventing default B2C submission.");
-            e.preventDefault();                      // Stop default
-            e.stopImmediatePropagation();            // Stop B2C handlers
+        // Save original B2C submit handler
+        const originalSubmit = selfAsserted.submit;
 
-            // Check form validity using native HTML5 validation
-            if (!form.checkValidity()) {
-                console.log("❌ Form is invalid.");
-                form.reportValidity(); // Show browser's inline messages
-                return;
+        // Override it
+        selfAsserted.submit = function () {
+            console.log("🚫 Custom intercept before submission");
+
+            // Your custom validation logic
+            const pwdInput = document.querySelector('input[type="password"]');
+            const pwd = pwdInput?.value || '';
+
+            if (!/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(pwd)) {
+                alert("❌ Password must have at least 8 characters, one uppercase, and one number.");
+                pwdInput?.focus();
+                return; // Stop submission
             }
 
-            //// ✅ Additional custom validation example (optional)
-            //const password = document.querySelector('input[type="password"]')?.value || '';
-            //if (!/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(password)) {
-            //    alert("Password must be at least 8 characters long and include an uppercase letter and a number.");
-            //    return;
-            //}
-
-            console.log("✅ Form is valid. Submitting manually.");
-            const realSubmit = document.querySelector('input[type="submit"][aria-hidden="true"]')
-                || document.querySelector('input[type="submit"]:not(#continue)');
-
-            if (realSubmit) {
-                realSubmit.click(); // ✅ This triggers B2C's internal flow
-                console.log("🚀 Triggered hidden B2C submit");
-            } else {
-                alert("❌ Could not find hidden submit button. B2C layout may have changed.");
-            }
-        }, true); // Use capture phase
+            console.log("✅ Custom validation passed. Submitting via original B2C handler...");
+            originalSubmit(); // Proceed with normal B2C orchestration
+        };
     }
 });
 
-// Start observing body changes immediately
-observer.observe(document.body, {
-    childList: true,
-    subtree: true
-});
+observer.observe(document.body, { childList: true, subtree: true });
