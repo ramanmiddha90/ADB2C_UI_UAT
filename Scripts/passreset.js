@@ -1,33 +1,43 @@
-﻿const waitForSelfAsserted = setInterval(() => {
-    if (typeof selfAsserted !== 'undefined' && typeof selfAsserted.submit === 'function') {
-        clearInterval(waitForSelfAsserted);
-        console.log("✅ selfAsserted object detected");
+﻿const observer = new MutationObserver(function (mutations, obs) {
+    const form = document.querySelector('form');
+    const continueBtn = document.querySelector('#continue')
+        || document.querySelector('button[type="submit"]');
 
-        // Store original B2C submit method
-        const originalSubmit = selfAsserted.submit;
+    if (form && continueBtn) {
+        console.log("✅ Form and continue button found.");
+        obs.disconnect();
 
-        // Override submit to run validation before continuing
-        selfAsserted.submit = function () {
-            console.log("🛑 Intercepted B2C submission");
+        // Replace default click behavior
+        const handler = function (e) {
+            e.preventDefault();                      // Stop default
+            e.stopImmediatePropagation();            // Stop internal B2C logic
 
-            const pwd = document.querySelector('input[type="password"]')?.value || '';
-            const confirm = document.querySelector('input[id*="ConfirmPassword"]')?.value || '';
-
-            // Simple password validation
-            if (!/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(pwd)) {
-                alert("❌ Password must have at least 8 characters, one uppercase letter, and one number.");
+            // ✅ Native HTML validation
+            if (!form.checkValidity()) {
+                form.reportValidity(); // show field-level errors
                 return;
             }
 
-            // Confirm password match
-            if (confirm && pwd !== confirm) {
-                alert("❌ Passwords do not match.");
+            // ✅ Custom password rule
+            const password = document.querySelector('input[type="password"]')?.value || '';
+            if (!/^(?=.*[A-Z])(?=.*\d).{8,}$/.test(password)) {
+                alert("Password must be at least 8 characters long, include an uppercase letter and a number.");
                 return;
             }
 
-            // If all validation passes, submit using B2C’s logic
-            console.log("✅ All checks passed. Calling original submit.");
-            originalSubmit();
+            console.log("✅ All checks passed. Resuming B2C submission...");
+
+            // 🔥 Remove the blocker listener and click the button to let B2C take over
+            continueBtn.removeEventListener('click', handler, true);
+            continueBtn.click(); // 👈 this triggers B2C’s real submission flow
         };
+
+        // Attach your handler using capture
+        continueBtn.addEventListener('click', handler, true);
     }
-}, 200);
+});
+
+observer.observe(document.body, {
+    childList: true,
+    subtree: true
+});
