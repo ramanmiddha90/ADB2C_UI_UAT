@@ -1,4 +1,4 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+﻿
     const observer = new MutationObserver(function (mutations, obs) {
         const form = document.querySelector('form');
 
@@ -26,4 +26,3 @@
         childList: true,
         subtree: true
     });
-});
