@@ -1,4 +1,28 @@
-﻿function GetParameterValues(param) {
+﻿(function onPageReady() {
+    var SIGN_IN_POLICY = "B2C_1A_SOLAR_LOGIN";
+    var SIGN_UP_POLICY = "B2C_1A_SOLAR_SIGNUP";
+    var intervalHandle = setInterval(
+        function () {
+            if (window.pageReady) {
+                var continuteButton = document.getElementById('continue');
+                if (continuteButton && $("#continue").is(':visible')) {
+
+                    loadFields();
+                    setUIElements();
+                  
+
+                    $("#customContinue").click(function (e) {
+                        setFieldValues();
+                        $("#continue").click();
+                    });
+                    clearInterval(intervalHandle);
+                }
+            }
+        }, 50);
+}());
+
+
+function GetParameterValues(param) {
     if (document.referrer != undefined) {
         var url = document.referrer.slice(document.referrer.indexOf('?') + 1).split('&');
         for (var i = 0; i < url.length; i++) {
@@ -80,7 +104,6 @@ function LoadFields() {
         }
     });
 }
-
 
 
 const observer = new MutationObserver(function (mutations, obs) {
