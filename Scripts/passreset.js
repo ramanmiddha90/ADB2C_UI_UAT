@@ -1,41 +1,29 @@
-﻿window.onload = function () {
-    document.addEventListener("DOMContentLoaded", function () {
-        const observer = new MutationObserver(function (mutations, obs) {
-            // Try to find the button by ID
-            const continueBtn = document.querySelector('#continue')
-                || document.querySelector('button[id^="continue"]')
-                || document.querySelector('button[type="submit"]'); // fallback
+﻿document.addEventListener("DOMContentLoaded", function () {
+    const observer = new MutationObserver(function (mutations, obs) {
+        const form = document.querySelector('form');
 
-            debugger;
-            if (continueBtn) {
-                console.log("Continue button detected.");
+        if (form) {
+            console.log("Form detected, binding submit listener.");
+            obs.disconnect();
 
-                // Stop observing once the button is found
-                obs.disconnect();
+            // Intercept the form submission directly
+            form.addEventListener('submit', function (e) {
+                e.preventDefault(); // 🔥 This actually stops B2C submission
 
-                // Override the click behavior
-                continueBtn.onclick = function (e) {
-                    e.preventDefault(); // ❌ Prevent default B2C submission
-                    console.log("B2C submission blocked.");
+                console.log("Submission prevented via form listener.");
 
-                    // ✅ Custom logic here
-                    alert("Custom logic before form submission");
+                // 🔐 Run your custom validation / logic here
+                alert("Form submission is blocked. Run custom logic.");
 
-                    //// ✅ Optional: Submit manually after checks
-                    //const form = document.querySelector('form');
-                    //if (form && form.checkValidity()) {
-                    //    form.submit();
-                    //} else {
-                    //    form?.reportValidity();
-                    //}
-                };
-            }
-        });
+                // ✅ To manually submit later:
+                // form.submit(); // uncomment if needed
+            }, true); // Important: use capture phase to override B2C!
 
-        // Observe body changes — B2C injects the form and button dynamically
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
+        }
     });
-};
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+});
