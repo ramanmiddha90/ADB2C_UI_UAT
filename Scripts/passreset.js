@@ -1,28 +1,30 @@
-﻿
-    const observer = new MutationObserver(function (mutations, obs) {
-        const form = document.querySelector('form');
+﻿const observer = new MutationObserver(function (mutations, obs) {
+    const continueBtn = document.querySelector('#continue')
+        || document.querySelector('button[type="submit"]')
+        || document.querySelector('button');
 
-        if (form) {
-            console.log("Form detected, binding submit listener.");
-            obs.disconnect();
+    if (continueBtn) {
+        console.log("✅ Continue button found");
 
-            // Intercept the form submission directly
-            form.addEventListener('submit', function (e) {
-                e.preventDefault(); // 🔥 This actually stops B2C submission
+        obs.disconnect();
 
-                console.log("Submission prevented via form listener.");
+        // Disable the button immediately to stop B2C JS postback
+        continueBtn.addEventListener('click', function (e) {
+            console.log("🚫 Blocking B2C submission");
 
-                // 🔐 Run your custom validation / logic here
-                alert("Form submission is blocked. Run custom logic.");
+            e.preventDefault(); // This alone is NOT enough
+            e.stopImmediatePropagation(); // 🔥 Stop all other listeners
 
-                // ✅ To manually submit later:
-                // form.submit(); // uncomment if needed
-            }, true); // Important: use capture phase to override B2C!
+            // 🔐 Your logic here
+            alert("Form submission blocked for custom logic");
 
-        }
-    });
+            // Optional: re-enable and manually submit if needed
+            // document.querySelector('form')?.submit();
+        }, true); // Capture phase
+    }
+});
 
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
+observer.observe(document.body, {
+    childList: true,
+    subtree: true
+});
