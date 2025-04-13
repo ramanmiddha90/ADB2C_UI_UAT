@@ -22,9 +22,11 @@
                 // Optionally, also trigger B2C's HTML5 validation
                 if (form.checkValidity()) {
                     alert("invalidForm");
+                    return;
                 } else {
                     alert("validform");
                     form.reportValidity();
+                    return;
                 }
             };
         }
