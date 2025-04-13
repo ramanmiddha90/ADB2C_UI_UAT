@@ -28,12 +28,14 @@
             //}
 
             console.log("✅ Form is valid. Submitting manually.");
-            if (typeof window['Login'] === 'function') {
-                window['Login']();
-            } else if (typeof window['__doPostBack'] === 'function') {
-                window['__doPostBack'](); // fallback
+            const realSubmit = document.querySelector('input[type="submit"][aria-hidden="true"]')
+                || document.querySelector('input[type="submit"]:not(#continue)');
+
+            if (realSubmit) {
+                realSubmit.click(); // ✅ This triggers B2C's internal flow
+                console.log("🚀 Triggered hidden B2C submit");
             } else {
-                alert("❌ Could not find B2C submit handler.");
+                alert("❌ Could not find hidden submit button. B2C layout may have changed.");
             }
         }, true); // Use capture phase
     }
