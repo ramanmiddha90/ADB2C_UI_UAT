@@ -121,7 +121,7 @@ function SubmitDCR() {
 
     };
 
-    var DCRBody = GenreateUpdateDCRRequest();
+    var updateDCRRqequest = GenreateUpdateDCRRequest();
     console.log(accessToken);
 
     if (accessToken != undefined && accessToken != ""
