@@ -76,20 +76,20 @@ function SetUIElements() {
 }
 function CreateDCRBody() {
     var fieldInfo = $.parseJSON($("#FieldInfo").val());
-   
+
     //read config fields and check which is visible and set those value only
     var Attribute = {};
     fieldInfo.Fields_Info.forEach(function (UXField) {
         var attributeID = "#" + UXField.Id;
         //attribute name is not blank and not undefined
-        if (UXField.Is_Visible && UXField.AttributeName !=undefined  && UXField.AttributeName!="") {
+        if (UXField.Is_Visible && UXField.AttributeName != undefined && UXField.AttributeName != "") {
             //type is also defined
-            if(UXField.InputType != undefined){
-                var attrValue="";
-                if(UXField.InputType=="Text"){
-                    attrValue=$(attributeID).text();
+            if (UXField.InputType != undefined) {
+                var attrValue = "";
+                attrValue = $(attributeID).val();
+                if (attrValue != "" && attrValue != null) {
+                    Attribute[UXField.AttributeName] = attrValue;
                 }
-                Attribute[UXField.AttributeName]=attrValue;
             }
         }
     });
@@ -102,11 +102,11 @@ function SubmitDCR() {
     var accessToken = $("#AccessToken").val();
 
     const headers = {
-        'Authorization': 'Bearer'+accessToken
-       
+        'Authorization': 'Bearer' + accessToken
+
     };
 
-    var DCRBody=CreateDCRBody();
+    var DCRBody = CreateDCRBody();
     console.log(accessToken);
 
     // makeApiCall('https://api.example.com/submit', 'POST', {}, postData)
