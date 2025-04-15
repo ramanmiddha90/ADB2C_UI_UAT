@@ -81,7 +81,7 @@ function generateGUID() {
         return v.toString(16);
     });
 }
-function CreateDCRBody() {
+function GenreateUpdateDCRRequest() {
     var fieldInfo = $.parseJSON($("#FieldInfo").val());
     var updateDCRBody = {};
     //read config fields and check which is visible and set those value only
@@ -121,16 +121,21 @@ function SubmitDCR() {
 
     };
 
-    var DCRBody = CreateDCRBody();
+    var DCRBody = GenreateUpdateDCRRequest();
     console.log(accessToken);
 
-    // makeApiCall('https://api.example.com/submit', 'POST', {}, postData)
-    //     .then(data => {
-    //         console.log('POST Data:', data);
-    //     })
-    //     .catch(error => {
-    //         console.error('Error in POST request:', error);
-    //     });
+    if (accessToken != undefined && accessToken != ""
+        && updateDCRRqequest != null && updateDCRRqequest != undefined) {
+
+        var url = "https://auf-solar-dev-westeurope-01.azurewebsites.net/api/solar/ProcessDCRFunction";
+        makeApiCall(url, 'POST', headers, updateDCRRqequest)
+            .then(data => {
+                console.log('POST Data:', data);
+            })
+            .catch(error => {
+                console.error('Error in POST request:', error);
+            });
+    }
 }
 
 function LoadFields() {
