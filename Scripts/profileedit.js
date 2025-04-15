@@ -106,7 +106,7 @@ function CreateDCRBody() {
     updateDCRBody["SignupType"]=queryparams.regType ?? "V1";
     updateDCRBody["CorrelationId"]=generateGUID();
     updateDCRBody["CommandType"]="UpdateAccount";
-    updateDCRBody["Attribute"]=attrValue;
+    updateDCRBody["Attribute"]=Attribute;
   
     console.log(JSON.stringify(updateDCRBody));
 }
