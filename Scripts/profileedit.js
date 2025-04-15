@@ -74,9 +74,16 @@ function SetUIElements() {
         }
     });
 }
+function generateGUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
 function CreateDCRBody() {
     var fieldInfo = $.parseJSON($("#FieldInfo").val());
-
+    var updateDCRBody = {};
     //read config fields and check which is visible and set those value only
     var Attribute = {};
     fieldInfo.Fields_Info.forEach(function (UXField) {
@@ -93,7 +100,15 @@ function CreateDCRBody() {
             }
         }
     });
-    console.log(Attribute);
+    var queryparams=JSON.parse($("#queryparams").val());
+    updateDCRBody["AccountId"]=queryparams.scoutUserAccountId;
+    updateDCRBody["CountryCode"]=queryparams.countryCode;
+    updateDCRBody["SignupType"]=queryparams.regType ?? "V1";
+    updateDCRBody["CorrelationId"]=generateGUID();
+    updateDCRBody["CommandType"]="UpdateAccount";
+    updateDCRBody["Attribute"]=attrValue;
+  
+    console.log(JSON.stringify(updateDCRBody));
 }
 function SubmitDCR() {
 
