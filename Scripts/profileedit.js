@@ -109,6 +109,8 @@ function GenreateUpdateDCRRequest() {
     updateDCRBody["Attribute"]=Attribute;
   
     console.log(JSON.stringify(updateDCRBody));
+
+    return updateDCRBody;
 }
 function SubmitDCR() {
 
