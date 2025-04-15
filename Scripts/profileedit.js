@@ -1,5 +1,5 @@
 ﻿(function onPageReady() {
-   
+
     var intervalHandle = setInterval(
         function () {
             if (window.pageReady) {
@@ -8,7 +8,7 @@
 
                     LoadFields();
                     SetUIElements();
-                  
+
 
                     $("#customContinue").click(function (e) {
                         setFieldValues();
@@ -74,6 +74,49 @@ function SetUIElements() {
         }
     });
 }
+function CreateDCRBody() {
+    var fieldInfo = $.parseJSON($("#FieldInfo").val());
+   
+    //read config fields and check which is visible and set those value only
+    var Attribute = {};
+    fieldInfo.Fields_Info.forEach(function (UXField) {
+        var attributeID = "#" + UXField.Id;
+        //attribute name is not blank and not undefined
+        if (UXField.Is_Visible && UXField.AttributeName !=undefined  && UXField.AttributeName!="") {
+            //type is also defined
+            if(UXField.InputType != undefined){
+                var attrValue="";
+                if(UXField.InputType=="Text"){
+                    attrValue=$(attributeID).text();
+                }
+                Attribute[UXField.AttributeName]=attrValue;
+            }
+        }
+    });
+    console.log(Attribute);
+}
+function SubmitDCR() {
+
+
+
+    var accessToken = $("#AccessToken").val();
+
+    const headers = {
+        'Authorization': 'Bearer'+accessToken
+       
+    };
+
+    var DCRBody=CreateDCRBody();
+    console.log(accessToken);
+
+    // makeApiCall('https://api.example.com/submit', 'POST', {}, postData)
+    //     .then(data => {
+    //         console.log('POST Data:', data);
+    //     })
+    //     .catch(error => {
+    //         console.error('Error in POST request:', error);
+    //     });
+}
 
 function LoadFields() {
 
@@ -105,6 +148,7 @@ function LoadFields() {
 }
 
 
+
 const observer = new MutationObserver(function (mutations, obs) {
     const form = document.querySelector('form');
     const cancelBtn = document.querySelector('#cancel');
@@ -113,12 +157,11 @@ const observer = new MutationObserver(function (mutations, obs) {
 
     if (form && continueBtn) {
 
-      
+
         console.log("✅ Form and continue button found.");
         obs.disconnect();
 
-        const cancelHandler=function(e)
-        {
+        const cancelHandler = function (e) {
             e.preventDefault();                      // Stop default
             e.stopImmediatePropagation(); // Stop internal B2C logic
 
@@ -140,11 +183,14 @@ const observer = new MutationObserver(function (mutations, obs) {
                 form.reportValidity(); // show field-level errors
                 return;
             }
-            alert("profile edit cancel clicked")
+            alert("profile edit continue clicked")
+
+            SubmitDCR();
+
             //call ajax api call here
             console.log("✅ All checks passed. Resuming B2C submission...");
 
-           
+
         };
 
         // Attach your handler using capture
