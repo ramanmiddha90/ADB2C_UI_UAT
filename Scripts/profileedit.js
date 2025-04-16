@@ -99,13 +99,15 @@ function GenreateUpdateDCRRequest() {
                 }
             }
         }
+       
     });
     var queryparams=JSON.parse($("#queryparams").val());
-    updateDCRBody["AccountId"]=queryparams.scoutUserAccountId;
-    updateDCRBody["CountryCode"]=queryparams.countryCode;
+    updateDCRBody["AccountId"]=queryparams.scoutUserAccountId ?? "";
+    updateDCRBody["CountryCode"]=queryparams.countryCode ?? "";
     updateDCRBody["SignupType"]=queryparams.regType ?? "V1";
     updateDCRBody["CorrelationId"]=generateGUID();
     updateDCRBody["CommandType"]="UpdateAccount";
+    Attribute["PersonEmail"]=queryparams.email ?? "";
     updateDCRBody["Attribute"]=Attribute;
   
     console.log(JSON.stringify(updateDCRBody));
@@ -133,9 +135,14 @@ function SubmitDCR() {
         makeApiCall(url, 'POST', headers, updateDCRRqequest)
             .then(data => {
                 console.log('POST Data:', data);
+                $("#lblUpdateMessage").show();
+                continueBtn.prop("disabled",false);
             })
             .catch(error => {
                 console.error('Error in POST request:', error);
+                $("#lblUpdateMessage").show();
+                continueBtn.prop("disabled",false);
+                $("#lblUpdateMessage").text("Unable to submit the request due to some internal error. Please try again!")
             });
     }
 }
@@ -179,7 +186,7 @@ const observer = new MutationObserver(function (mutations, obs) {
 
     if (form && continueBtn) {
 
-
+        $("#lblUpdateMessage").hide();
         console.log("✅ Form and continue button found.");
         obs.disconnect();
 
@@ -197,6 +204,7 @@ const observer = new MutationObserver(function (mutations, obs) {
 
         // Replace default click behavior
         const handler = function (e) {
+            continueBtn.prop("disabled",true);
             e.preventDefault();                      // Stop default
             e.stopImmediatePropagation();            // Stop internal B2C logic
 
