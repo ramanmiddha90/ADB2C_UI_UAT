@@ -221,10 +221,7 @@ const observer = new MutationObserver(function (mutations, obs) {
 
             //call ajax api call here
             console.log("✅ All checks passed. Resuming B2C submission...");
-
-
         };
-
         // Attach your handler using capture
         continueBtn.addEventListener('click', handler, true);
         cancelBtn.addEventListener('click', cancelHandler, true);
