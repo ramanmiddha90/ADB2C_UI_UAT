@@ -204,7 +204,7 @@ const observer = new MutationObserver(function (mutations, obs) {
 
         // Replace default click behavior
         const handler = function (e) {
-            continueBtn.prop("disabled",true);
+            
             e.preventDefault();                      // Stop default
             e.stopImmediatePropagation();            // Stop internal B2C logic
 
