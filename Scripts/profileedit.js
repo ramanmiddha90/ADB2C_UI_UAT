@@ -116,18 +116,20 @@ function GenreateUpdateDCRRequest() {
 }
 function SubmitDCR() {
 
+    const continueBtn = document.querySelector('#continue')
+        || document.querySelector('button[type="submit"]');
 
+    if (continueBtn) {
 
+    }
     var accessToken = $("#AccessToken").val();
 
     const headers = {
         'Authorization': 'Bearer' + accessToken
 
     };
-
     var updateDCRRqequest = GenreateUpdateDCRRequest();
     console.log(accessToken);
-
     if (accessToken != undefined && accessToken != ""
         && updateDCRRqequest != null && updateDCRRqequest != undefined) {
 
@@ -136,12 +138,12 @@ function SubmitDCR() {
             .then(data => {
                 console.log('POST Data:', data);
                 $("#lblUpdateMessage").show();
-                continueBtn.prop("disabled",false);
+              
             })
             .catch(error => {
                 console.error('Error in POST request:', error);
                 $("#lblUpdateMessage").show();
-                continueBtn.prop("disabled",false);
+              
                 $("#lblUpdateMessage").text("Unable to submit the request due to some internal error. Please try again!")
             });
     }
@@ -213,7 +215,7 @@ const observer = new MutationObserver(function (mutations, obs) {
                 form.reportValidity(); // show field-level errors
                 return;
             }
-            alert("profile edit continue clicked")
+            console.log("profile update request started");
 
             SubmitDCR();
 
