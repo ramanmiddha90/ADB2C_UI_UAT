@@ -1,18 +1,12 @@
-﻿(function onPageReady() {
-    var intervalHandle = setInterval(
-        function () {
-            if (window.pageReady) {
-                $('#myTab li').removeClass('active');
-                $('.tab-pane').removeClass('active in');
+﻿$(document).ready(function () {
+    // Remove 'active' class from first tab and pane
+    $('#myTab li').removeClass('active');
+    $('.tab-pane').removeClass('active in');
 
-                // Add 'active' to the second tab and pane
-                $('#myTab li:eq(1)').addClass('active');
-                $('#passwordReset').addClass('active in');
-
-                clearInterval(intervalHandle);
-            }
-}, 50);
-}());
+    // Add 'active' to the second tab and pane
+    $('#myTab li:eq(1)').addClass('active');
+    $('#passwordReset').addClass('active in');
+});
 
 const observer = new MutationObserver(function (mutations, obs) {
     const form = document.querySelector('form');
