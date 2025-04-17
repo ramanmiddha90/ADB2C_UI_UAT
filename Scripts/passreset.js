@@ -2,7 +2,7 @@
     // Activate second tab
     $('#myTab li:eq(1) a').tab('show');
 });
-$('#myTab li:eq(1) a').tab('show');
+
 const observer = new MutationObserver(function (mutations, obs) {
     const form = document.querySelector('form');
     const continueBtn = document.querySelector('#continue')
