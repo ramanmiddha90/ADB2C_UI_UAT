@@ -1,4 +1,7 @@
-﻿const observer = new MutationObserver(function (mutations, obs) {
+﻿$(document).ready(function () {
+    $('.nav-tabs a[href="#passwordReset"]').tab('show');
+});
+const observer = new MutationObserver(function (mutations, obs) {
     const form = document.querySelector('form');
     const continueBtn = document.querySelector('#continue')
         || document.querySelector('button[type="submit"]');
