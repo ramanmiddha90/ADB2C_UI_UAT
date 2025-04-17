@@ -3,6 +3,7 @@
         function () {
             if (window.pageReady) {
                 $('#myTab li:eq(1) a').tab('show');
+            }
 }, 50);
 }());
 
