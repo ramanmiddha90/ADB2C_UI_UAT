@@ -1,7 +1,10 @@
-﻿$(document).ready(function () {
-    // Activate second tab
-    $('#myTab li:eq(1) a').tab('show');
-});
+﻿(function onPageReady() {
+    var intervalHandle = setInterval(
+        function () {
+            if (window.pageReady) {
+                $('#myTab li:eq(1) a').tab('show');
+}, 50);
+}());
 
 const observer = new MutationObserver(function (mutations, obs) {
     const form = document.querySelector('form');
