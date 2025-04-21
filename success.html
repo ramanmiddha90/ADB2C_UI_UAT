@@ -1,75 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Password Reset Success</title>
-    <!-- Load Bootstrap CSS (from CDN) -->
+    <title>Password Reset</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
+            padding: 20px;
             font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f8f9fa;
         }
 
-        #alertMessage{
+        .hidden {
+            display: none;
+        }
+        .alertMessage{
             display:none;
         }
-        .modal-backdrop {
-            opacity: 0.5 !important;
+
+        .b2c-container {
+            max-width: 500px;
+            margin: 0 auto;
         }
     </style>
 </head>
 <body>
-    <!-- Hidden Form (required for B2C to proceed) -->
-    <form id="passwordResetForm" method="POST">
-        <input type="hidden" name="request_type" value="submit" />
-    </form>
+    <!-- Required B2C Form (hidden) -->
+    <div class="b2c-container">
+        <div id="api" class="hidden">
+            <!-- This empty div is REQUIRED for B2C to function -->
+        </div>
+    </div>
 
-    <!-- Bootstrap Modal -->
-    <div class="modal fade show" id="successModal" tabindex="-1" aria-modal="true" role="dialog" style="display: block;">
+    <!-- Bootstrap Success Modal -->
+    <div class="modal fade show" id="successModal" tabindex="-1" style="display: block;" aria-modal="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-success text-white">
                     <h5 class="modal-title">Success!</h5>
                 </div>
-                <div class="modal-body">
-                    <div class="text-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#28a745" class="bi bi-check-circle-fill mb-3" viewBox="0 0 16 16">
-                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                        </svg>
-                        <h4>Password Reset Successful</h4>
-                        <p>Your password has been updated. You can now sign in with your new credentials.</p>
-                    </div>
+                <div class="modal-body text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#28a745" class="bi bi-check-circle-fill mb-3" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                    </svg>
+                    <h4>Password Reset Complete</h4>
+                    <p>Your password has been successfully updated.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="continueBtn" class="btn btn-success w-100">Continue</button>
+                    <button id="continue" type="button" class="btn btn-success w-100">Continue to Sign In</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Load Bootstrap & jQuery (required for modal) -->
+    <!-- Required Libraries -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Auto-show modal & handle continue -->
+    <!-- B2C Form Handler -->
     <script>
         $(document).ready(function () {
-            // Show modal immediately
+            // Initialize modal (already shown)
             var modal = new bootstrap.Modal(document.getElementById('successModal'), {
-                backdrop: 'static', // Prevent closing by clicking outside
-                keyboard: false     // Prevent closing with ESC key
+                backdrop: 'static',
+                keyboard: false
             });
             modal.show();
-
-            // Auto-submit form when "Continue" is clicked
-            document.getElementById("continueBtn").addEventListener("click", function () {
-                document.getElementById("passwordResetForm").submit();
-            });
-
-            // Optional: Auto-continue after 5 seconds
-            setTimeout(function () {
-                //document.getElementById("passwordResetForm").submit();
-            }, 5000);
+           
         });
     </script>
 </body>
