@@ -1,60 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Success</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
+    <script type="text/javascript">
+        // Show popup immediately on page load
+        window.onload = function () {
+            alert("Your password has been reset successfully!");
 
-        #overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #popup {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-
-            #popup h2 {
-                color: #2e7d32;
-                margin-bottom: 10px;
-            }
-
-            #popup p {
-                color: #555;
-                margin-bottom: 20px;
-            }
-
-            #popup button {
-                background: #2e7d32;
-                color: white;
-                border: none;
-                padding: 10px 20px;
-                border-radius: 5px;
-                cursor: pointer;
-                font-size: 16px;
-            }
-
-                #popup button:hover {
-                    background: #1b5e20;
-                }
+            // Auto-click "Continue" after 1 second (optional)
+            setTimeout(function () {
+                var continueBtn = document.getElementById("continue");
+                if (continueBtn) continueBtn.click();
+            }, 1000);
+        };
+    </script>
     </style>
 </head>
 <body>
