@@ -2,11 +2,11 @@
     var intervalHandle = setInterval(
         function () {
             if (document.readyState) {
-                //if (bootstrap) {
-                //    clearInterval(intervalHandle);
-                //    const modal = new bootstrap.Modal(document.getElementById('successModal'));
-                //    modal.show();
-                //}
+                if (bootstrap !=undefined && bootstrap!=null) {
+                    clearInterval(intervalHandle);
+                    const modal = new bootstrap.Modal(document.getElementById('successModal'));
+                    modal.show();
+                }
             }
         }, 50);
 window.onload = function () {
