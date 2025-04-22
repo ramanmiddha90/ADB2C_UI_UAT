@@ -1,40 +1,6 @@
 ﻿
         // Ensure B2C API is available
-    function waitForB2CApi(callback) {
-            if (window.api && window.api.selfasserted) {
-        callback();
-            } else {
-        setTimeout(() => waitForB2CApi(callback), 100);
-            }
-        }
-
-    // Main initialization
-    document.addEventListener('DOMContentLoaded', function() {
-        waitForB2CApi(function () {
-            try {
-                // 1. Disable auto-redirect
-                api.selfasserted.setContinueOnSuccess(false);
-
-                // 2. Handle form submission
-                api.selfasserted.on('afterSubmit', function () {
-                   alert("dd")
-                });
-
-                // 4. Error handling
-                api.selfasserted.on('afterError', function (error) {
-                    console.error('Password reset error:', error);
-                });
-            } catch (e) {
-                console.error('API initialization failed:', e);
-                // Fallback to default behavior
-                if (api.selfasserted) {
-                    api.selfasserted.setContinueOnSuccess(true);
-                }
-            }
-        });
-        });
-
-
+   
 
 
 $(document).ready(function () {
