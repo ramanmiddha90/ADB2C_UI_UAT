@@ -1,7 +1,7 @@
 
     var intervalHandle = setInterval(
         function () {
-            if (window.pageReady) {
+            if (document.readyState) {
                 if (bootstrap) {
                     clearInterval(intervalHandle);
                     const modal = new bootstrap.Modal(document.getElementById('successModal'));
@@ -9,6 +9,11 @@
                 }
             }
         }, 50);
+window.onload = function () {
+    //your code
+    const modal = new bootstrap.Modal(document.getElementById('successModal'));
+    modal.show();
+};
 
 const observer = new MutationObserver(function (mutations, obs) {
     const form = document.querySelector('form');
