@@ -65,7 +65,7 @@
                 }
                 function SetPolicyTC() {
                     var sigupPolicyURL = $("label[for='TnCPolicy_true']");
-                    var labelText = "<div>I have read and accept the  <a id='signup'  href='https://prod.solar.sandoz.com/us-en/terms-use-and-conditions/'>Terms of Use</a> and Sandoz <a id='signup'  href='https://prod.solar.sandoz.com/us-en/privacy-policy/'>Privacy Policy</a>.</div>";
+                    var labelText = "<div>I have read and accept the  <a id='signup' target='_blank'  href='https://prod.solar.sandoz.com/us-en/terms-use-and-conditions/'>Terms of Use</a> and Sandoz <a id='signup' target='_blank'  href='https://prod.solar.sandoz.com/us-en/privacy-policy/'>Privacy Policy</a>.</div>";
                     sigupPolicyURL.html(labelText);
                 }
                 function setUIElements() {
