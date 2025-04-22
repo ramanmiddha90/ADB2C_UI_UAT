@@ -1,23 +1,15 @@
+(function onPageReady() {
 
-// Ensure B2C API is available
-
-
-
-$(document).ready(function () {
-    // Remove 'active' class from first tab and pane
-    $('#myTab li').removeClass('active');
-    $('.tab-pane').removeClass('active in');
-
-    // Add 'active' to the second tab and pane
-    $('#myTab li:eq(1)').addClass('active');
-    $('#passwordReset').addClass('active in');
-
-    $("#home-tab").click(function (e) {
-        e.preventDefault();                      // Stop default
-        e.stopImmediatePropagation(); // Stop internal B2C logic
-        alert("tab clicked");
-    });
-
+    var intervalHandle = setInterval(
+        function () {
+            if (window.pageReady) {
+                if (bootstrap) {
+                    clearInterval(intervalHandle);
+                    const modal = new bootstrap.Modal(document.getElementById('successModal'));
+                    modal.show();
+                }
+            }
+        }, 50);
 });
 
 const observer = new MutationObserver(function (mutations, obs) {
@@ -25,10 +17,7 @@ const observer = new MutationObserver(function (mutations, obs) {
     if (form) {
         obs.disconnect();
         // Auto-show the modal on page load
-        if (bootstrap) {
-            const modal = new bootstrap.Modal(document.getElementById('successModal'));
-            modal.show();
-        }
+        
     }
 });
 
