@@ -1,4 +1,3 @@
-(function onPageReady() {
 
     var intervalHandle = setInterval(
         function () {
@@ -10,7 +9,6 @@
                 }
             }
         }, 50);
-});
 
 const observer = new MutationObserver(function (mutations, obs) {
     const form = document.querySelector('form');
