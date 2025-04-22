@@ -1,71 +1,92 @@
 <!DOCTYPE html>
-<html>
+<!-- saved from url=(0036)https://dimkoig1.github.io/form.html -->
+<html lang="en">
 <head>
-    <title>Password Reset</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            padding: 20px;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://ramanmiddha90.github.io/ADB2C_UI_UAT/styles/main_v2.css" data-preload="true">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+    <script src="https://ciamtest01.b2clogin.com/ciamtest01.onmicrosoft.com/B2C_1A_SOLAR_PWRESET/api.js"></script>
 
-        .hidden {
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://ramanmiddha90.github.io/ADB2C_UI_UAT/Scripts/restservice.js"></script>
+    <script src="https://ramanmiddha90.github.io/ADB2C_UI_UAT/Scripts/passreset.js"></script>
+    <style type="text/css">
+        #cancel, #lblUpdateMessage {
             display: none;
         }
-        .alertMessage{
-            display:none;
-        }
-
-        .b2c-container {
-            max-width: 500px;
-            margin: 0 auto;
-        }
     </style>
+
+
+
+
 </head>
 <body>
-    <!-- Required B2C Form (hidden) -->
-    <div class="b2c-container">
-        <div id="api" class="hidden">
-            <!-- This empty div is REQUIRED for B2C to function -->
+
+    <div class="container">
+        <div class="pageheader intropageheader intro pepageheader"><p id="intropageheader_lbl">My Sandoz Profile</p></div>
+        <div>
+            <p id="lbl_pe_content" class="customLabelIntro">
+                Welcome to Sandoz self-service profile management where you can update your contact and professional information,
+                change your Sandoz account password and manage your consents with us. Your profile information helps us to proper
+                connect with you as part of our services to customers.
+            </p>
+        </div>
+        <div class="snd-navContainer">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item active">
+                    <a class="nav-link " id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-expanded="true" aria-selected="true">Edit Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#passwordReset" role="tab" aria-controls="profile" aria-selected="false">Password Reset</a>
+                </li>
+                <!--<li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#manageConsent" role="tab" aria-controls="contact" aria-selected="false">Manage Consent</a>
+                </li>-->
+            </ul>
+        </div>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade active in" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+            </div>
+            <div class="tab-pane fade" id="passwordReset" role="tabpanel" aria-labelledby="password-tab">
+                <div class="wrapper">
+                    <img id="logo" src="https://ramanmiddha90.github.io/ADSolarAsests/objects/sandoz-logo_6.svg" alt="Sandoz Logo" style="display:none;">
+                    <p id="lblUpdateMessage">Your update request has been submitted successfully.</p>
+                    <div id="form">
+                        <div id="api" data-name="SelfAsserted" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="manageConsent" role="tabpanel" aria-labelledby="contact-tab">
+                <p id="lbl_pitcherURLError">No url configured for this user. Please check the configuration.</p>
+
+                <div class="consentwrapper">
+                    <div class="buttons">
+                        <button id="btnConsent" type="submit" form="attributeVerification" tabindex="-1">Manage Consent</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <!-- Bootstrap Success Modal -->
-    <div class="modal fade show" id="successModal" tabindex="-1" style="display: block;" aria-modal="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-success text-white">
-                    <h5 class="modal-title">Success!</h5>
-                </div>
-                <div class="modal-body text-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#28a745" class="bi bi-check-circle-fill mb-3" viewBox="0 0 16 16">
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                    </svg>
-                    <h4>Password Reset Complete</h4>
-                    <p>Your password has been successfully updated.</p>
-                </div>
-                <div class="modal-footer">
-                    <button id="continue" type="button" class="btn btn-success w-100">Continue to Sign In</button>
+    <div class="footer">
+        <div class="container component-wrapper">
+            <div class="row country-en">
+                <div class="footer-bottom">
+                    <div class="richtext footer-first footer-text">
+                        <p>© 2025 Sandoz Group AG</p>
+                    </div><span class="footer-middle"><a class="anchor footer-text no-underline" target="_self" href="https://prod.solar.sandoz.com/us-en/privacy-policy/"><p>Privacy Policy</p></a></span><div class="richtext footer-last footer-text">
+                        <p>This site is intended for a global audience</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Required Libraries -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- B2C Form Handler -->
-    <script>
-        $(document).ready(function () {
-            // Initialize modal (already shown)
-            var modal = new bootstrap.Modal(document.getElementById('successModal'), {
-                backdrop: 'static',
-                keyboard: false
-            });
-            modal.show();
-           
-        });
-    </script>
 </body>
 </html>
