@@ -11,7 +11,10 @@
         }, 50);
 window.onload = function () {
     //your code
-    const modal = new bootstrap.Modal(document.getElementById('successModal'));
+    const modal = new bootstrap.Modal(document.getElementById('successModal'), {
+        backdrop: 'static',
+        keyboard: false
+    });
     modal.show();
 };
 
