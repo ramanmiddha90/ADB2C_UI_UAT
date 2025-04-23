@@ -9,7 +9,6 @@
                     LoadFields();
                     SetUIElements();
 
-
                     $("#customContinue").click(function (e) {
                         setFieldValues();
                         $("#continue").click();
@@ -44,24 +43,7 @@ function GetParameterValues(param) {
 };
 
 function SetUIElements() {
-
-    $("#btnReset").click(function (event) {
-
-        var queryparams = new URLSearchParams(window.location.search);
-        if (queryparams.has("redirect_uri")) {
-            queryparams.set("p", "B2C_1A_PWRESET");
-            window.location.replace(window.location.origin + window.location.pathname + "?" + queryparams.toString())
-        }
-        else {
-            var redirect_uri = GetParameterValues("redirect_uri");
-            var client_id = GetParameterValues("client_id");
-            var return_url = GetParameterValues("return_url");
-            var originURL = document.domain;
-            var tenantName = originURL.replace(".b2clogin.com", "") + ".onmicrosoft.com";
-            var passwordURL = "https://" + originURL + "/" + tenantName + "/oauth2/v2.0/authorize?p=B2C_1A_pwreset&client_id=" + client_id + "&nonce=defaultNonce&redirect_uri=" + redirect_uri + "&scope=openid&response_type=id_token&UI_Locales=en&return_url=" + return_url;
-            window.location.replace(passwordURL);
-        }
-    });
+    HandleTabEvents(0);
     $("#btnConsent").click(function (e) {
         $("#lbl_pitcherURLError").hide();
         var portalURL = $("#passwordResetPortalUserURl").val();
