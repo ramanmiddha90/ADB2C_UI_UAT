@@ -104,7 +104,7 @@
                     $("#resetPassword").click(function (event) {
 
                         var queryparams = new URLSearchParams(window.location.search);
-                        queryparams.set("p", "B2C_1A_PWRESET");
+                        queryparams.set("p", "B2C_1A_SOLAR_PWRESET_LOGIN");
                         window.location.search = queryparams.toString();
                     });
 
