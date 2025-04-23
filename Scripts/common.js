@@ -13,11 +13,22 @@ function HandleTabEvents(tabIndex = 1) {
         $('#passwordReset').addClass('active in');
     }
 
-    $("#home-tab").click(function (e) {
-        e.preventDefault();                      // Stop default
-        e.stopImmediatePropagation(); // Stop internal B2C logic
-        SetTabURL();
-    });
+    //user is on PE and set password reset tab clieck
+    if (tabIndex == 0) {
+        $("#home-tab").click(function (e) {
+            e.preventDefault();                      // Stop default
+            e.stopImmediatePropagation(); // Stop internal B2C logic
+            SetTabURL();
+        });
+    }
+    else {
+        //user is ON PR set PE click
+        $("#profile-tab").click(function (e) {
+            e.preventDefault();                      // Stop default
+            e.stopImmediatePropagation(); // Stop internal B2C logic
+            SetTabURL();
+        });
+    }
 }
 function SetTabURL() {
     var queryparams = JSON.parse($("#queryparams").val());
