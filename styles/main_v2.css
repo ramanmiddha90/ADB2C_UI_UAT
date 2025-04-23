@@ -349,6 +349,9 @@ fieldset {
 #lblUpdateMessage {
     color: red;
 }
+#lblPESuccess{
+    font-weight:bold;
+}
 
 .verifying-modal {
     clear: both;

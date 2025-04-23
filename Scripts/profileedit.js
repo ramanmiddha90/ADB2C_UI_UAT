@@ -119,14 +119,14 @@ function SubmitDCR() {
         makeApiCall(url, 'POST', headers, updateDCRRqequest)
             .then(data => {
                 console.log('POST Data:', data);
-                $("#lblUpdateMessage").show();
+                $("#lblPESuccess").show();
               
             })
             .catch(error => {
                 console.error('Error in POST request:', error);
-                $("#lblUpdateMessage").show();
-              
-                $("#lblUpdateMessage").text("Unable to submit the request due to some internal error. Please try again!")
+                $("#lblPESuccess").show();
+                $("#lblPESuccess").css("color", 'red');
+                $("#lblPESuccess").text("Unable to submit the request due to some internal error. Please try again!")
             });
     }
 }
