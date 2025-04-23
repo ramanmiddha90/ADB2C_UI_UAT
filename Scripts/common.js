@@ -15,7 +15,7 @@ function HandleTabEvents(tabIndex = 1) {
 
     //user is on PE and set password reset tab clieck
     if (tabIndex == 0) {
-        $("#home-tab").click(function (e) {
+        $("#passwrod-tab").click(function (e) {
             e.preventDefault();                      // Stop default
             e.stopImmediatePropagation(); // Stop internal B2C logic
             SetTabURL();
@@ -23,7 +23,7 @@ function HandleTabEvents(tabIndex = 1) {
     }
     else {
         //user is ON PR set PE click
-        $("#profile-tab").click(function (e) {
+        $("#home-tab").click(function (e) {
             e.preventDefault();                      // Stop default
             e.stopImmediatePropagation(); // Stop internal B2C logic
             SetTabURL();
