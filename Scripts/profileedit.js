@@ -81,19 +81,17 @@ function GenreateUpdateDCRRequest() {
                 }
             }
         }
-       
-    });
-    var queryparams=JSON.parse($("#queryparams").val());
-    updateDCRBody["AccountId"]=queryparams.scoutUserAccountId ?? "";
-    updateDCRBody["CountryCode"]=queryparams.countryCode ?? "";
-    updateDCRBody["SignupType"]=queryparams.regType ?? "V1";
-    updateDCRBody["CorrelationId"]=generateGUID();
-    updateDCRBody["CommandType"]="UpdateAccount";
-    Attribute["PersonEmail"]=queryparams.email ?? "";
-    updateDCRBody["Attribute"]=Attribute;
-  
-    console.log(JSON.stringify(updateDCRBody));
 
+    });
+    var queryparams = JSON.parse($("#queryparams").val());
+    updateDCRBody["AccountId"] = queryparams.scoutUserAccountId ?? "";
+    updateDCRBody["CountryCode"] = queryparams.countryCode ?? "";
+    updateDCRBody["SignupType"] = queryparams.regType ?? "V1";
+    updateDCRBody["CorrelationId"] = generateGUID();
+    updateDCRBody["CommandType"] = "UpdateAccount";
+    Attribute["PersonEmail"] = queryparams.email ?? "";
+    updateDCRBody["Attribute"] = Attribute;
+    console.log(JSON.stringify(updateDCRBody));
     return updateDCRBody;
 }
 function SubmitDCR() {
@@ -101,14 +99,9 @@ function SubmitDCR() {
     const continueBtn = document.querySelector('#continue')
         || document.querySelector('button[type="submit"]');
 
-    if (continueBtn) {
-
-    }
     var accessToken = $("#AccessToken").val();
-
     const headers = {
         'Authorization': 'Bearer' + accessToken
-
     };
     var updateDCRRqequest = GenreateUpdateDCRRequest();
     console.log(accessToken);
@@ -120,7 +113,7 @@ function SubmitDCR() {
             .then(data => {
                 console.log('POST Data:', data);
                 $("#lblPESuccess").show();
-              
+
             })
             .catch(error => {
                 console.error('Error in POST request:', error);
@@ -171,28 +164,19 @@ const observer = new MutationObserver(function (mutations, obs) {
     if (form && continueBtn) {
 
         $("#lblUpdateMessage").hide();
-        console.log("✅ Form and continue button found.");
+
         obs.disconnect();
 
         const cancelHandler = function (e) {
             e.preventDefault();                      // Stop default
             e.stopImmediatePropagation(); // Stop internal B2C logic
-
-            var returnUrl = GetParameterValues('return_url'); //Encoded value FE URL
-            if (returnUrl == null)
-                returnUrl = "";
-            var redirectURI = GetParameterValues('redirect_uri');
-            var url = decodeURIComponent(redirectURI) + "#error=access_denied&error_description=AAD_Custom_476:" + returnUrl;
-            window.location.replace(url);
         }
 
         // Replace default click behavior
         const handler = function (e) {
-            
             e.preventDefault();                      // Stop default
             e.stopImmediatePropagation();            // Stop internal B2C logic
-
-            // ✅ Native HTML validation
+            //Native HTML validation
             if (!form.checkValidity()) {
                 form.reportValidity(); // show field-level errors
                 return;
@@ -202,7 +186,7 @@ const observer = new MutationObserver(function (mutations, obs) {
             SubmitDCR();
 
             //call ajax api call here
-            console.log("✅ All checks passed. Resuming B2C submission...");
+            console.log("All checks passed. Resuming B2C submission...");
         };
         // Attach your handler using capture
         continueBtn.addEventListener('click', handler, true);
@@ -214,7 +198,3 @@ observer.observe(document.body, {
     childList: true,
     subtree: true
 });
-
-//  Remove the blocker listener and click the button to let B2C take over
-//continueBtn.removeEventListener('click', handler, true);
-//continueBtn.click(); // this triggers B2C’s real submission flow
