@@ -3,7 +3,9 @@
     var intervalHandle = setInterval(
         function () {
             if (window.pageReady) {
-
+                var policyPrefix = "B2C_1A_SOLAR_SANDOZID_PROD";
+                var SNZPolicy = "SNZ_LOGIN";
+                var SwissRXPolicy = "SWISSRX_LOGIN";
                 var SetInvitationElements = function () {
 
                     $("#signInName").on("change paste keyup", function () {
@@ -43,10 +45,9 @@
 
                             var UI_Locales = $.parseJSON($("#ErrorMappings").val());
                             UI_Locales.StatusMapping.forEach(function (UIElementConfig) {
-                                if (UIElementConfig.Type && UIElementConfig.Type == "label")
-                                {
+                                if (UIElementConfig.Type && UIElementConfig.Type == "label") {
                                     //code is id
-                                    var currentElement = $("#"+UIElementConfig.Code);
+                                    var currentElement = $("#" + UIElementConfig.Code);
                                     if (currentElement) {
                                         currentElement.html(UIElementConfig.Text);
                                     }
@@ -56,7 +57,7 @@
                         }
                     }
                     catch {
-                        
+
                     }
                 }
                 function GetCancelCodeBasedOnMessage() {
@@ -69,7 +70,7 @@
 
                             UI_Locales.StatusMapping.forEach(function (error) {
 
-                                if (error.Message!=undefined && error.Message == currentErrorMessage) {
+                                if (error.Message != undefined && error.Message == currentErrorMessage) {
                                     errorCode = error.Code;
                                     return false;
                                 }
@@ -78,11 +79,6 @@
                     }
                     return errorCode;
                 };
-
-
-                function AddPasswordResetLink() {
-
-                }
                 function GetParameterValues(param) {
                     var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
                     for (var i = 0; i < url.length; i++) {
@@ -95,16 +91,22 @@
                     return null;
                 };
                 var BindIDPEvent = function () {
-                    $("#NovartisExchange").click(function (event) {
-
+                    $("#SNZ_LOGIN").click(function (event) {
+                        var policyName = policyPrefix + "_" + SNZPolicy;
                         var queryparams = new URLSearchParams(window.location.search);
-                        queryparams.set("p", "B2C_1A_SANDOZ_IDP_LOGIN");
+                        queryparams.set("p", policyName);
+                        window.location.search = queryparams.toString();
+                    });
+                    $("#SWISSRX_LOGIN").click(function (event) {
+                        var policyName = policyPrefix + "_" + SwissRXPolicy;
+                        var queryparams = new URLSearchParams(window.location.search);
+                        queryparams.set("p", policyName);
                         window.location.search = queryparams.toString();
                     });
                     $("#resetPassword").click(function (event) {
 
                         var queryparams = new URLSearchParams(window.location.search);
-                        queryparams.set("p", "B2C_1A_PWRESET");
+                        queryparams.set("p", "B2C_1A_SOLAR_Prod_PWRESET");
                         window.location.search = queryparams.toString();
                     });
 
@@ -115,8 +117,31 @@
                         window.location.search = queryparams.toString();
                     });
                 };
+                var SetIDPs = function () {
+                    try {
+                        if ($("#FieldInfo") != null && $("#FieldInfo") != undefined) {
+                            var fieldInfo = $.parseJSON($("#FieldInfo").val());
+                            if (fieldInfo.IDPs != null && fieldInfo.IDPs != undefined) {
+                                fieldInfo.IDPs.forEach(function (UXField) {
+                                    var IDPSelector = "#" + UXField.Id;
+
+                                    if (UXField.Is_Visible) {
+                                        $(IDPSelector).show();
+                                    }
+                                    else {
+                                        $(IDPSelector).hide();
+                                    }
+                                });
+                            }
+                        }
+                    }
+                    catch {
+
+                    }
+                }
                 var setCustomLabels = function () {
                     SetUILabels();
+                    SetIDPs();
                     $("#customCancel").text($("#cancel").text())
 
                     if ($("#api"))
